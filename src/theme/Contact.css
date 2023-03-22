@@ -1,0 +1,115 @@
+.contact-warpper {
+  width: 30vw;
+  margin-right: 60px;
+  height: 100vh;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.contact-warpper .header .page-title {
+  font-size: calc(var(--font-size) + 0.9rem);
+  font-family: 'vazir-bold';
+}
+
+.contact-warpper .search-bar {
+  position: relative;
+  width: 100%;
+  margin: 1rem auto;
+  height: 45px;
+  /* box-shadow: 0 0 6px 1px #0003; */
+  border-radius: 0.5rem;
+}
+
+.contact-warpper .search-bar img {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translate(-50%, -50%);
+}
+
+.contact-warpper .search-bar input {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: var(--light-gray-color);
+  padding: 0.3rem;
+}
+
+.contact-warpper .contact {
+  margin-top: 2rem;
+}
+
+.contact-warpper .contact ul li {
+  min-height: 80px;
+}
+
+.contact-warpper .contact ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  height: 80px;
+  width: 100%;
+  padding: 1rem 0.5rem;
+  transition: 0.3s ease-in-out;
+}
+
+.contact-warpper .contact ul li a .badge {
+  position: absolute;
+  font-size: calc(var(--font-size) - 0.1rem);
+  left: 5px;
+  top: 17px;
+  color: var(--gray-color);
+  font-family: 'vazir-light';
+}
+
+.contact-warpper .contact ul li a:hover .badge,
+.contact-warpper .contact ul li.active a .badge {
+  color: #fff;
+}
+
+.contact-warpper .contact ul li a:hover,
+.contact-warpper .contact ul li.active a {
+  background-color: var(--purple-color);
+}
+
+.contact-warpper .contact ul li a:hover .user-chat span,
+.contact-warpper .contact ul li.active a .user-chat span {
+  color: #fff !important;
+}
+
+.contact-warpper .contact ul li a span.user-profile {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  /* box-shadow: 0 0 10px 2px #0004; */
+  margin-left: 0.5rem;
+}
+
+.contact-warpper .contact ul li a span.user-profile img {
+  border-radius: 50%;
+  height: 100%;
+  object-position: center;
+}
+
+.contact-warpper .contact ul li a .user-chat {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.contact-warpper .contact ul li a .user-chat span:first-child {
+  font-size: calc(var(--font-size) + 0.2rem);
+}
+
+.contact-warpper .contact ul li a .user-chat span:last-child {
+  font-size: var(--font-size);
+  font-weight: 400;
+  color: var(--gray-color);
+  margin-top: 0.5rem;
+  font-family: 'vazir-light';
+}

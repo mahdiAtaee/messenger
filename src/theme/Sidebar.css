@@ -1,0 +1,79 @@
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  background: #fff;
+  border-right: 1rem solid #fff;
+}
+
+.sidebar ul li:first-child {
+  margin-bottom: 3rem;
+}
+
+.sidebar ul li {
+  margin-top: 2rem;
+}
+
+.sidebar ul li.active {
+  filter: invert(28%) sepia(100%) hue-rotate(-180deg) saturate(3);
+}
+
+.sidebar ul li.active::before{
+  content: '';
+  width: 5px;
+  height: 25px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: blue;
+  display: inline-block;
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar ul li a img {
+  width: 35px;
+  height: 35px;
+}
+
+.sidebar ul li.profile,
+.sidebar ul li.light-dark-mode,
+.sidebar ul li.settings {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-35%);
+}
+
+.sidebar ul li.light-dark-mode {
+  bottom: 130px;
+}
+.sidebar ul li.settings {
+  bottom: 70px;
+}
+.sidebar ul li.profile {
+  bottom: 10px;
+}
+
+.sidebar ul li.profile a .avatar-wrapper {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  background: #eee;
+}
+
+.sidebar ul li.profile a .avatar-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+.sidebar ul li a span.title {
+  font-size: var(--font-size);
+}

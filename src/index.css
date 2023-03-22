@@ -1,13 +1,101 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url(./theme/Sidebar.css);
+@import url(./theme/Contact.css);
+@import url(./theme/PageHeader.css);
+@import url(./theme/Chat.css);
+
+@font-face {
+  font-family: 'vazir-bold';
+  src: url(./Assets/fonts/Vazir-Bold.ttf) format('trueType'),
+    url(./Assets/fonts/Vazir-Bold.eot) format('embedded-openType'),
+    url(./Assets/fonts/Vazir-Bold.woff) format('woff');
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'vazir';
+  src: url(./Assets/fonts/Vazir.ttf) format('trueType'),
+    url(./Assets/fonts/Vazir.eot) format('embedded-openType'),
+    url(./Assets/fonts/Vazir.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'vazir-light';
+  src: url(./Assets/fonts/Vazir-Light.ttf) format('trueType'),
+    url(./Assets/fonts/Vazir-Light.eot) format('embedded-openType'),
+    url(./Assets/fonts/Vazir-Light.woff) format('woff');
+}
+
+:root {
+  --font-size: 0.8rem;
+  --black-color: #1a1919;
+  --gray-color: #7c7c7c;
+  --purple-color: #7b97d9;
+  --light-gray-color: #f0f0f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'vazir';
+}
+
+body {
+  direction: rtl;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black-color);
+}
+
+ul {
+  list-style: none;
+}
+
+.img-responsive {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  height: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-center-between-column {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.flex-center-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex-start {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+
+.flex-end {
+  display: end;
+  align-items: end;
+  justify-content: end;
 }
