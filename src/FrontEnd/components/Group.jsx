@@ -4,14 +4,17 @@ import User2 from '../../Assets/img/man2.jpg'
 import User3 from '../../Assets/img/man3.jpg'
 import User4 from '../../Assets/img/woman1.jpg'
 import User5 from '../../Assets/img/woman2.jpg'
-import { useDarkModeContext } from '../../context/DarkModeContext'
+import UserIcon from '../../Assets/img/user.png'
+import { actionTypes, useDarkModeContext, useDarkModeDispatch } from '../../context/DarkModeContext'
 
-const Contact = () => {
+const Group = () => {
+  const dispatch = useDarkModeDispatch()
   const { dark } = useDarkModeContext()
+
   return (
-    <div className={dark ? 'contact-warpper dark' : 'contact-warpper'}>
+    <div className={dark ? 'contact-warpper dark' : 'contact-warpper light'}>
       <div className="header">
-        <div className="page-title">پیــام هــا</div>
+        <div className="page-title">دوستـــان</div>
         <div className="search-bar">
           <img src={Magnifier} alt="search" className="img-responsive" />
           <input
@@ -31,9 +34,10 @@ const Contact = () => {
               </span>
               <div className="user-chat">
                 <span className="username">کاربر 1</span>
-                <span className="last-chat">عالی! خیلی خوبه ❤</span>
               </div>
-              <div className="badge chat-time">21:00 بعدازظهر</div>
+              <div className="user-icon">
+                <img src={UserIcon} alt="+" className="img-responsive" />
+              </div>
             </a>
           </li>
           <li>
@@ -43,9 +47,10 @@ const Contact = () => {
               </span>
               <div className="user-chat">
                 <span className="username">کاربر 1</span>
-                <span className="last-chat">عالی! خیلی خوبه ❤</span>
               </div>
-              <div className="badge chat-time">01:00 صبح</div>
+              <div className="user-icon">
+                <img src={UserIcon} alt="+" className="img-responsive" />
+              </div>
             </a>
           </li>
           <li>
@@ -55,9 +60,10 @@ const Contact = () => {
               </span>
               <div className="user-chat">
                 <span className="username">کاربر 1</span>
-                <span className="last-chat">عالی! خیلی خوبه ❤</span>
               </div>
-              <div className="badge chat-time">18:00 بعدازظهر</div>
+              <div className="user-icon">
+                <img src={UserIcon} alt="+" className="img-responsive" />
+              </div>
             </a>
           </li>
           <li>
@@ -67,9 +73,10 @@ const Contact = () => {
               </span>
               <div className="user-chat">
                 <span className="username">کاربر 1</span>
-                <span className="last-chat">عالی! خیلی خوبه ❤</span>
               </div>
-              <div className="badge chat-time">10:00 صبح</div>
+              <div className="user-icon">
+                <img src={UserIcon} alt="+" className="img-responsive" />
+              </div>
             </a>
           </li>
           <li>
@@ -79,9 +86,10 @@ const Contact = () => {
               </span>
               <div className="user-chat">
                 <span className="username">کاربر 1</span>
-                <span className="last-chat">عالی! خیلی خوبه ❤</span>
               </div>
-              <div className="badge chat-time">9:30 صبح</div>
+              <div className="user-icon">
+                <img src={UserIcon} alt="+" className="img-responsive" />
+              </div>
             </a>
           </li>
         </ul>
@@ -90,4 +98,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default Group

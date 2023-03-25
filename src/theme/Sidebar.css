@@ -8,6 +8,10 @@
   border-right: 1rem solid #fff;
 }
 
+.sidebar ul {
+  padding: 0;
+}
+
 .sidebar ul li:first-child {
   margin-bottom: 3rem;
 }
@@ -20,7 +24,7 @@
   filter: invert(28%) sepia(100%) hue-rotate(-180deg) saturate(3);
 }
 
-.sidebar ul li.active::before{
+.sidebar ul li.active::before {
   content: '';
   width: 5px;
   height: 25px;
@@ -76,4 +80,18 @@
 
 .sidebar ul li a span.title {
   font-size: var(--font-size);
+}
+
+/* dark mode  */
+.sidebar.dark {
+  background: var(--navy-blue-color);
+  border-color: var(--navy-blue-color);
+}
+
+.sidebar.dark ul li.active {
+  filter: invert(70%) sepia(100%) hue-rotate(-180deg) saturate(3);
+}
+
+.sidebar.dark ul li.item a img {
+  filter: invert(0.8);
 }

@@ -2,6 +2,7 @@
 @import url(./theme/Contact.css);
 @import url(./theme/PageHeader.css);
 @import url(./theme/Chat.css);
+@import url(./theme/Settings.css);
 
 @font-face {
   font-family: 'vazir-bold';
@@ -30,6 +31,10 @@
   --gray-color: #7c7c7c;
   --purple-color: #7b97d9;
   --light-gray-color: #f0f0f0;
+  --light-blue-color: #2196f3;
+  --navy-blue-color: #041c32;
+  --tealish-blue-color: #3c415c;
+  --dark-blue-color: #060930;
 }
 
 * {
@@ -43,13 +48,18 @@ body {
   direction: rtl;
 }
 
+.app.dark {
+  background-color: var(--navy-blue-color);
+}
+
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: var(--black-color);
 }
 
 ul {
   list-style: none;
+  padding: 0 !important;
 }
 
 .img-responsive {
@@ -98,4 +108,36 @@ ul {
   display: end;
   align-items: end;
   justify-content: end;
+}
+
+/* scrollbar  */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--light-gray-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--purple-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--purple-color);
+}
+
+.not-found {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 60px;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
 }

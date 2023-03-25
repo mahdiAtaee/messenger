@@ -2,9 +2,14 @@ import Menu from '../../Assets/img/dots.png'
 import Call from '../../Assets/img/telephone.png'
 import VideoCall from '../../Assets/img/video.png'
 import User from '../../Assets/img/man1.jpg'
+
+import { useDarkModeContext } from '../../context/DarkModeContext'
+
 const Header = () => {
+  const { dark } = useDarkModeContext()
+
   return (
-    <header className='chat-header'>
+    <header className={dark ? 'chat-header dark' : 'chat-header light'}>
       <div className="right-section">
         <div className="user-profile">
           <img src={User} alt="" className="img-responsive" />
@@ -25,6 +30,5 @@ const Header = () => {
     </header>
   )
 }
- 
+
 export default Header
- 

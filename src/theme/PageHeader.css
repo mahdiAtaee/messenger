@@ -4,10 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: calc(100vw - 38vw);
+  width: calc(100vw - 35vw);
   position: fixed;
   top: 0;
   left: 0;
+  padding: 0 1rem;
 }
 
 .right-section {
@@ -43,4 +44,17 @@
   height: 30px;
   cursor: pointer;
   margin-left: 0.5rem;
+}
+
+/* dark mode  */
+.chat-header.dark {
+  background-color: var(--navy-blue-color);
+}
+
+.chat-header.dark .right-section .username {
+  color: var(--light-gray-color);
+}
+
+.chat-header.dark .left-section img {
+  filter: invert(1);
 }
