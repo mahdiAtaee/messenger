@@ -1,0 +1,60 @@
+.chat-header {
+  height: 100px;
+  max-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100vw - 35vw);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 1rem;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.right-section .user-profile {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+}
+
+.right-section .user-profile img {
+  border-radius: 50%;
+  height: 100%;
+  object-position: center;
+  margin-left: 1rem;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 10vw;
+}
+
+.left-section div {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+/* dark mode  */
+.chat-header.dark {
+  background-color: var(--navy-blue-color);
+}
+
+.chat-header.dark .right-section .username {
+  color: var(--light-gray-color);
+}
+
+.chat-header.dark .left-section img {
+  filter: invert(1);
+}

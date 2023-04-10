@@ -1,0 +1,202 @@
+.settings-wrapper {
+  width: 30vw;
+  margin-right: 60px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 1rem;
+  box-shadow: -3px 0px 6px 1px #0004;
+  position: relative;
+  z-index: 10;
+}
+
+.settings-wrapper .header .page-title {
+  font-size: calc(var(--font-size) + 0.9rem);
+  font-family: 'vazir-bold';
+  padding-right: 1rem;
+}
+
+.settings-wrapper .user-account .input-wrapper {
+  position: relative;
+  height: 40px;
+  margin-bottom: 1rem;
+}
+
+.settings-wrapper .accordion-item {
+  border: none;
+}
+
+.settings-wrapper .accordion-button {
+  box-shadow: none !important;
+  position: relative;
+  background-color: transparent !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(90deg) !important;
+}
+
+.settings-wrapper .accordion-button::after {
+  position: absolute;
+  left: 10px;
+}
+
+.settings-wrapper .accordion-button span.title {
+  font-size: calc(var(--font-size) + 0.2rem);
+  font-family: 'vazir-bold';
+  margin-bottom: 0.5rem;
+}
+
+.settings-wrapper .accordion-button span.describe-title {
+  font-size: var(--font-size);
+  font-family: 'vazir';
+  margin-bottom: 0.5rem;
+  color: var(--gray-color);
+}
+
+.settings-wrapper .user-account .input-wrapper input:placeholder-shown + label {
+  position: absolute;
+  top: 6px;
+  right: 21px;
+  color: var(--gray-color);
+}
+
+.settings-wrapper .user-account .input-wrapper input:focus + label,
+.settings-wrapper .user-account .input-wrapper input + label {
+  position: absolute;
+  background: #fff;
+  color: var(--purple-color);
+  font-size: calc(var(--font-size) + 0.1rem);
+  padding: 0.2rem;
+  font-family: 'vazir';
+  transition: 0.2s ease-in;
+  top: -14px;
+  right: 21px;
+  color: var(--purple-color);
+}
+
+.settings-wrapper .user-account .input-wrapper input {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: none;
+  outline: none;
+  height: 100%;
+  font-size: var(--font-size);
+  padding: 0.5rem;
+  font-family: 'vazir';
+  color: var(--gray-color);
+  border-color: #444;
+}
+
+/* Privacy styles  */
+.settings-wrapper .input-wrapper {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.settings-wrapper .input-wrapper .switch {
+  position: relative;
+  width: 45px;
+  height: 26px;
+}
+
+.settings-wrapper .input-wrapper .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.settings-wrapper .input-wrapper .switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.settings-wrapper .input-wrapper .switch .slider:before {
+  position: absolute;
+  content: '';
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 5px;
+  border-radius: 50%;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.settings-wrapper .input-wrapper .switch input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.settings-wrapper .input-wrapper .switch input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+.settings-wrapper .input-wrapper .switch input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+.settings-wrapper .input-wrapper .privacy-text {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.settings-wrapper .input-wrapper .privacy-text .privacy-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: 'vazir-bold';
+}
+
+.settings-wrapper .input-wrapper .privacy-text .privacy-desc {
+  font-size: 0.9rem;
+  font-family: 'vazir-light';
+  color: var(--gray-color);
+  margin-top: 0.5rem;
+}
+
+.settings-wrapper .input-wrapper .checkbox-wrapper {
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+
+/* dark mode  */
+.settings-wrapper.dark {
+  box-shadow: -3px 0px 6px 1px #0004;
+}
+
+.settings-wrapper.dark .accordion-item {
+  background-color: var(--navy-blue-color);
+}
+
+.settings-wrapper.dark .header .page-title {
+  color: var(--light-gray-color);
+}
+
+.settings-wrapper.dark .accordion-button .title {
+  color: var(--light-gray-color);
+}
+
+.settings-wrapper.dark .accordion-button::after {
+  filter: invert(1);
+}
+
+.settings-wrapper.dark .accordion .privacy-title {
+  color: var(--light-gray-color);
+}

@@ -1,0 +1,144 @@
+@import url(./theme/Sidebar.css);
+@import url(./theme/Contact.css);
+@import url(./theme/PageHeader.css);
+@import url(./theme/Chat.css);
+@import url(./theme/Settings.css);
+@import url(./theme/Auth.css);
+
+@font-face {
+  font-family: 'vazir-bold';
+  src: url(./Assets/fonts/Vazir-Bold.ttf) format('trueType'),
+    url(./Assets/fonts/Vazir-Bold.eot) format('embedded-openType'),
+    url(./Assets/fonts/Vazir-Bold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'vazir';
+  src: url(./Assets/fonts/Vazir.ttf) format('trueType'),
+    url(./Assets/fonts/Vazir.eot) format('embedded-openType'),
+    url(./Assets/fonts/Vazir.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'vazir-light';
+  src: url(./Assets/fonts/Vazir-Light.ttf) format('trueType'),
+    url(./Assets/fonts/Vazir-Light.eot) format('embedded-openType'),
+    url(./Assets/fonts/Vazir-Light.woff) format('woff');
+}
+
+:root {
+  --font-size: 0.8rem;
+  --black-color: #1a1919;
+  --gray-color: #7c7c7c;
+  --purple-color: #7b97d9;
+  --light-gray-color: #f0f0f0;
+  --light-blue-color: #2196f3;
+  --navy-blue-color: #041c32;
+  --tealish-blue-color: #3c415c;
+  --dark-blue-color: #060930;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'vazir';
+}
+
+body {
+  direction: rtl;
+}
+
+.app.dark {
+  background-color: var(--navy-blue-color);
+}
+
+a {
+  text-decoration: none !important;
+  color: var(--black-color);
+}
+
+ul {
+  list-style: none;
+  padding: 0 !important;
+}
+
+.img-responsive {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  height: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-center-between-column {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.flex-center-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex-start {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+
+.flex-end {
+  display: end;
+  align-items: end;
+  justify-content: end;
+}
+
+/* scrollbar  */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--light-gray-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--purple-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--purple-color);
+}
+
+.not-found {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 60px;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+}
