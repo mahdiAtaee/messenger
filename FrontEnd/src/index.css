@@ -36,6 +36,8 @@
   --navy-blue-color: #041c32;
   --tealish-blue-color: #3c415c;
   --dark-blue-color: #060930;
+  --error-message-color: #f22525;
+  --success-message-color: #1ba01b;
 }
 
 * {
@@ -43,6 +45,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'vazir';
+}
+
+.app {
+  overflow: hidden;
 }
 
 body {
@@ -141,4 +147,19 @@ ul {
   width: 100vw;
   height: 100vh;
   z-index: 999999;
+}
+
+.custom-nav-style {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.nav-link {
+  border: none !important;
+  outline: none !important;
+}
+
+.nav {
+  border: none !important;
 }

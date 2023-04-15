@@ -1,0 +1,85 @@
+.sign {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light-gray-color);
+}
+
+.sign .item {
+  width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px 10px #0001;
+}
+
+.sign .item h2 {
+  margin-bottom: 2rem;
+}
+
+.sign .item .form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.sign .item .form-group .input-wrapper {
+  position: relative;
+}
+
+.sign .item .form-group input.form-control {
+  padding: 0.5rem 2.5rem 0.5rem 0.5rem;
+  line-height: 40px;
+  color: var(--gray-color);
+  border: none;
+  background: var(--light-gray-color);
+  border-radius: 0.5rem;
+  box-shadow: none !important;
+  transition: 0.3s ease-in-out;
+}
+
+.sign .item .form-group button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  filter: grayscale(100%) contrast(0%);
+}
+
+a.remember-password {
+  display: block;
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+}
+
+.login-button,
+.register-button {
+  width: 100%;
+  margin: 1rem 0;
+  background: var(--light-blue-color);
+  color: #fff;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+}
+
+.error-message {
+  margin-top: 0.5rem;
+  color: var(--error-message-color);
+  font-size: 0.8rem;
+}
+
+input.has-error {
+  border-right: 5px solid var(--error-message-color) !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+input.success {
+  border-right: 5px solid var(--success-message-color) !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}

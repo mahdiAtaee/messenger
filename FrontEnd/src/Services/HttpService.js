@@ -3,7 +3,7 @@ import axios from 'axios'
 class HttpService {
   constructor() {
     this.client = axios.create({
-      baseURL: 'http://localhost:8000/api',
+      baseURL: 'http://localhost:5000/api/v1',
       timeout: 1000,
       headers: {}
     })

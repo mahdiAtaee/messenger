@@ -72,21 +72,21 @@
 .contact-warpper .contact ul li a:hover .badge {
   color: var(--gray-color);
 }
-.contact-warpper .contact ul li.active a .badge {
+.contact-warpper .contact ul li a.active .badge {
   color: #fff;
 }
 
 .contact-warpper .contact ul li a:hover {
   background-color: var(--light-gray-color);
 }
-.contact-warpper .contact ul li.active a {
+.contact-warpper .contact ul li a.active {
   background-color: var(--light-blue-color);
 }
 
 .contact-warpper .contact ul li a:hover .user-chat span {
   color: var(--gray-color);
 }
-.contact-warpper .contact ul li.active a .user-chat span {
+.contact-warpper .contact ul li a.active .user-chat span {
   color: #fff !important;
 }
 
@@ -152,7 +152,7 @@
 .contact-warpper.dark .contact ul li a:hover .badge {
   color: var(--gray-color);
 }
-.contact-warpper.dark .contact ul li.active a .badge {
+.contact-warpper.dark .contact ul li a.active .badge {
   color: #fff;
 }
 
@@ -167,7 +167,7 @@
 .contact-warpper.dark .contact ul li a:hover .user-chat span {
   color: #fff;
 }
-.contact-warpper.dark .contact ul li.active a .user-chat span {
+.contact-warpper.dark .contact ul li a.active .user-chat span {
   color: #fff !important;
 }
 
@@ -178,13 +178,13 @@
 .contact-warpper.dark .contact ul li a:hover .user-icon img {
   filter: invert(1);
 }
-.contact-warpper.dark .contact ul li.active a .user-icon img {
+.contact-warpper.dark .contact ul li a.active .user-icon img {
   filter: invert(1);
 }
 
 .contact-warpper.dark .contact ul li a:hover .badge {
-  color: #fff;
+  color: #fff !important;
 }
-.contact-warpper.dark .contact ul li.active a .badge {
-  color: #fff;
+.contact-warpper.dark .contact ul li a.active .badge {
+  color: #fff !important;
 }

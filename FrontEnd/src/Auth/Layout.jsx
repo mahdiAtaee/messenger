@@ -1,4 +1,4 @@
-import Sidebar from '../Main/components/Sidebar'
+import Sidebar from '../components/Main/Sidebar'
 
 const Layout = ({ children }) => {
   return (

@@ -1,24 +1,24 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useDarkModeContext } from './context/DarkModeContext'
 
-import SettingsPage from './Main/pages/SettingsPage'
-import ContactPage from './Main/pages/ContactPage'
-import GroupPage from './Main/pages/GroupPage'
-import NotFoundPage from './Main/pages/NotFoundPage'
+import SettingsPage from './components/pages/SettingsPage'
+import ContactPage from './components/pages/ContactPage'
+import GroupPage from './components/pages/GroupPage'
+import NotFoundPage from './components/Partials/NotFoundPage'
 import Login from './Auth/Login'
 import Register from './Auth/Register'
 
 import LocationService from './Services/LocationService'
 import MessageService from './Services/MessageService'
 
-import MainLayout from './Main/Layout'
+import MainLayout from './components/Layout'
 import AuthLayout from './Auth/Layout'
-import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom'
 
 function App() {
   const { dark } = useDarkModeContext()
   const messageService = new MessageService()
-
+  const loggedIn = false
   return (
     <div className={dark ? 'app dark' : 'app'}>
       <BrowserRouter>
@@ -64,7 +64,7 @@ function App() {
             <AuthLayout>
               <Switch>
                 <Route path="*">
-                  <NotFoundPage />
+                  {loggedIn ? <Redirect to="/messenger/chat" /> : <Redirect to="/auth/login" />}
                 </Route>
               </Switch>
             </AuthLayout>
