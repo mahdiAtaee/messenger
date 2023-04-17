@@ -14,9 +14,9 @@ const Register = ({ registerUser }) => {
   } = useForm()
   const onSubmit = (data) => {
     registerUser({
-      userName: data.username,
-      userEmail: data.email,
-      userPassword: data.password
+      full_name: data.username,
+      email: data.email,
+      password: data.password
     })
   }
 

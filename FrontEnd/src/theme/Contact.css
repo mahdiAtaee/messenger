@@ -78,9 +78,11 @@
 
 .contact-warpper .contact ul li a:hover {
   background-color: var(--light-gray-color);
+  border-radius: 0.8rem;
 }
 .contact-warpper .contact ul li a.active {
-  background-color: var(--light-blue-color);
+  background-color: var(--navy-blue-color);
+  border-radius: 0.8rem;
 }
 
 .contact-warpper .contact ul li a:hover .user-chat span {
@@ -157,6 +159,10 @@
 }
 
 .contact-warpper.dark .contact ul li a:hover {
+  background-color: var(--dark-blue-color);
+}
+
+.contact-warpper.dark .contact ul li a.active {
   background-color: var(--dark-blue-color);
 }
 
