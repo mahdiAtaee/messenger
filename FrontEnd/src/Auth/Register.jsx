@@ -4,9 +4,10 @@ import Email from '../Assets/img/email.png'
 import { useForm } from 'react-hook-form'
 import { connect } from 'react-redux'
 import userActions from '../Store/Actions/UsersAction'
+import { Link, useHistory } from 'react-router-dom'
+import { useEffect } from 'react'
 
-
-const Register = ({ registerUser }) => {
+const Register = ({ registerUser, message, success }) => {
   const {
     register,
     formState: { errors },
@@ -20,9 +21,49 @@ const Register = ({ registerUser }) => {
     })
   }
 
+  const history = useHistory()
+
+  useEffect(() => {
+    let redirect
+    if (success === true) {
+      redirect = setTimeout(() => {
+        history.push('/auth/login')
+      }, 2000)
+    }
+    return () => {
+      clearTimeout(redirect)
+    }
+  }, [success, history])
+
+  const showMessage = (
+    <div className="row">
+      <div className="col">
+        <div
+          className={
+            success === true
+              ? 'alert alert-success alert-dismissible fade show'
+              : 'alert alert-danger alert-dismissible fade show'
+          }
+          role="alert">
+          <div className="loading">
+            <div className="loader-sm"></div>
+          </div>
+          {message}
+          {success === true ? <div>در حال انتقال به صفحه ورود هستید</div> : ''}
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  )
+
   return (
     <div className="sign">
       <div className="container">
+        {success && showMessage}
         <div className="item">
           <form onSubmit={handleSubmit(onSubmit)}>
             <h2>ثبت نام</h2>
@@ -110,7 +151,7 @@ const Register = ({ registerUser }) => {
               ثبت نام
             </button>
             <span>
-              آیا قبلا ثبت نام کردی? <a href="/auth/login">ورود.</a>
+              آیا قبلا ثبت نام کردی? <Link to="/auth/login">ورود.</Link>
             </span>
           </form>
         </div>
@@ -121,7 +162,10 @@ const Register = ({ registerUser }) => {
 
 export default connect(
   (state) => {
-    return {}
+    return {
+      success: state.users.success,
+      message: state.users.message
+    }
   },
   (dispatch) => {
     return {

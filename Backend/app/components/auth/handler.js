@@ -7,14 +7,34 @@ exports.register = async (req, res) => {
   userData.hash = randomHash();
   const newUser = await authService.register(userData);
   if (newUser) {
-    res.send({
+    return res.send({
       success: true,
-      token: token.sign({
-        uid: newUser.id,
-      }),
+      message: "ثبت نام با موفقیت انجام شد.",
     });
   }
-  res.send({
+  return res.send({
     success: false,
+    message: "خطایی در فرایند ثبت نام رخ داده است",
+  });
+};
+
+exports.login = async (req, res) => {
+  const userCredential = req.body;
+  const loginResult = await authService.login(
+    userCredential.email,
+    userCredential.password
+  );
+  if (!loginResult) {
+    return res.status(400).send({
+      success: false,
+      message: "ایمیل یا رمز عبور اشتباه وارد کرده اید.",
+    });
+  }
+  return res.send({
+    success: true,
+    isUserLoggedIn: true,
+    token: token.sign({
+      uid: loginResult.id,
+    }),
   });
 };

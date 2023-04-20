@@ -163,3 +163,111 @@ ul {
 .nav {
   border: none !important;
 }
+
+.alert {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+}
+
+.loading {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.loader {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: transparent;
+  box-shadow: 0 -18px 0 0 #9880ff, 12.727926px -12.727926px 0 0 #9880ff, 18px 0 0 0 #9880ff,
+    12.727926px 12.727926px 0 0 rgba(152, 128, 255, 0), 0 18px 0 0 rgba(152, 128, 255, 0),
+    -12.727926px 12.727926px 0 0 rgba(152, 128, 255, 0), -18px 0 0 0 rgba(152, 128, 255, 0),
+    -12.727926px -12.727926px 0 0 rgba(152, 128, 255, 0);
+  animation: dot-spin 1.5s infinite linear;
+}
+
+@keyframes dot-spin {
+  0%,
+  100% {
+    box-shadow: 0 -18px 0 0 #9880ff, 12.727926px -12.727926px 0 0 #9880ff, 18px 0 0 0 #9880ff,
+      12.727926px 12.727926px 0 -5px rgba(152, 128, 255, 0), 0 18px 0 -5px rgba(152, 128, 255, 0),
+      -12.727926px 12.727926px 0 -5px rgba(152, 128, 255, 0), -18px 0 0 -5px rgba(152, 128, 255, 0),
+      -12.727926px -12.727926px 0 -5px rgba(152, 128, 255, 0);
+  }
+  12.5% {
+    box-shadow: 0 -18px 0 -5px rgba(152, 128, 255, 0), 12.727926px -12.727926px 0 0 #9880ff,
+      18px 0 0 0 #9880ff, 12.727926px 12.727926px 0 0 #9880ff, 0 18px 0 -5px rgba(152, 128, 255, 0),
+      -12.727926px 12.727926px 0 -5px rgba(152, 128, 255, 0), -18px 0 0 -5px rgba(152, 128, 255, 0),
+      -12.727926px -12.727926px 0 -5px rgba(152, 128, 255, 0);
+  }
+  25% {
+    box-shadow: 0 -18px 0 -5px rgba(152, 128, 255, 0),
+      12.727926px -12.727926px 0 -5px rgba(152, 128, 255, 0), 18px 0 0 0 #9880ff,
+      12.727926px 12.727926px 0 0 #9880ff, 0 18px 0 0 #9880ff,
+      -12.727926px 12.727926px 0 -5px rgba(152, 128, 255, 0), -18px 0 0 -5px rgba(152, 128, 255, 0),
+      -12.727926px -12.727926px 0 -5px rgba(152, 128, 255, 0);
+  }
+  37.5% {
+    box-shadow: 0 -18px 0 -5px rgba(152, 128, 255, 0),
+      12.727926px -12.727926px 0 -5px rgba(152, 128, 255, 0), 18px 0 0 -5px rgba(152, 128, 255, 0),
+      12.727926px 12.727926px 0 0 #9880ff, 0 18px 0 0 #9880ff, -12.727926px 12.727926px 0 0 #9880ff,
+      -18px 0 0 -5px rgba(152, 128, 255, 0), -12.727926px -12.727926px 0 -5px rgba(152, 128, 255, 0);
+  }
+  50% {
+    box-shadow: 0 -18px 0 -5px rgba(152, 128, 255, 0),
+      12.727926px -12.727926px 0 -5px rgba(152, 128, 255, 0), 18px 0 0 -5px rgba(152, 128, 255, 0),
+      12.727926px 12.727926px 0 -5px rgba(152, 128, 255, 0), 0 18px 0 0 #9880ff,
+      -12.727926px 12.727926px 0 0 #9880ff, -18px 0 0 0 #9880ff,
+      -12.727926px -12.727926px 0 -5px rgba(152, 128, 255, 0);
+  }
+  62.5% {
+    box-shadow: 0 -18px 0 -5px rgba(152, 128, 255, 0),
+      12.727926px -12.727926px 0 -5px rgba(152, 128, 255, 0), 18px 0 0 -5px rgba(152, 128, 255, 0),
+      12.727926px 12.727926px 0 -5px rgba(152, 128, 255, 0), 0 18px 0 -5px rgba(152, 128, 255, 0),
+      -12.727926px 12.727926px 0 0 #9880ff, -18px 0 0 0 #9880ff,
+      -12.727926px -12.727926px 0 0 #9880ff;
+  }
+  75% {
+    box-shadow: 0 -18px 0 0 #9880ff, 12.727926px -12.727926px 0 -5px rgba(152, 128, 255, 0),
+      18px 0 0 -5px rgba(152, 128, 255, 0), 12.727926px 12.727926px 0 -5px rgba(152, 128, 255, 0),
+      0 18px 0 -5px rgba(152, 128, 255, 0), -12.727926px 12.727926px 0 -5px rgba(152, 128, 255, 0),
+      -18px 0 0 0 #9880ff, -12.727926px -12.727926px 0 0 #9880ff;
+  }
+  87.5% {
+    box-shadow: 0 -18px 0 0 #9880ff, 12.727926px -12.727926px 0 0 #9880ff,
+      18px 0 0 -5px rgba(152, 128, 255, 0), 12.727926px 12.727926px 0 -5px rgba(152, 128, 255, 0),
+      0 18px 0 -5px rgba(152, 128, 255, 0), -12.727926px 12.727926px 0 -5px rgba(152, 128, 255, 0),
+      -18px 0 0 -5px rgba(152, 128, 255, 0), -12.727926px -12.727926px 0 0 #9880ff;
+  }
+}
+
+.loader-sm {
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+  animation: dot-carousel 1.5s infinite linear;
+}
+
+@keyframes dot-carousel {
+  0% {
+    box-shadow: 9984px 0 0 -1px #9880ff, 9999px 0 0 1px #9880ff, 10014px 0 0 -1px #9880ff;
+  }
+  50% {
+    box-shadow: 10014px 0 0 -1px #9880ff, 9984px 0 0 -1px #9880ff, 9999px 0 0 1px #9880ff;
+  }
+  100% {
+    box-shadow: 9999px 0 0 1px #9880ff, 10014px 0 0 -1px #9880ff, 9984px 0 0 -1px #9880ff;
+  }
+}
