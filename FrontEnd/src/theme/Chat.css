@@ -108,6 +108,9 @@
 }
 
 /* dark mode  */
+.chat-box.dark {
+  background-color: var(--navy-blue-color) !important;
+}
 .chat-box.dark .chat-footer input {
   background-color: var(--black-color);
   color: #fff;

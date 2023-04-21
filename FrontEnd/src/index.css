@@ -4,6 +4,7 @@
 @import url(./theme/Chat.css);
 @import url(./theme/Settings.css);
 @import url(./theme/Auth.css);
+@import url(./theme/responsive.css);
 
 @font-face {
   font-family: 'vazir-bold';

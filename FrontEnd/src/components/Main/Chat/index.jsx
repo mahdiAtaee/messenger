@@ -1,13 +1,21 @@
 import { useDarkModeContext } from '../../../context/DarkModeContext'
+import { useShowChatBoxContext } from '../../../context/ShowChatContext'
 import Chat from './Chat'
 import ChatFooter from './ChatFooter'
 import ChatHeader from './ChatHeader'
 const Index = () => {
   const { dark } = useDarkModeContext()
+  const { showChatBox } = useShowChatBoxContext()
+  const isShow = showChatBox === false ? 'none' : 'block'
+
+  
   return (
-    <div className={dark ? 'tab-content chat-box dark' : 'tab-content chat-box'} id="myTabContent">
+    <div
+      className={dark ? 'tab-content chat-box dark' : 'tab-content chat-box'}
+      id="myTabContent"
+      style={{ display: isShow }}>
       <div
-        className="tab-pane fade show active"
+        className="tab-pane fade"
         id="user-one"
         role="tabpanel"
         aria-labelledby="user-one-tab">

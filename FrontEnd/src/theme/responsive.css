@@ -1,0 +1,212 @@
+@media screen and (max-width: 860px) {
+  /* .tab-content {
+    display: none;
+  } */
+  .sidebar ul li a .text {
+    display: block;
+  }
+
+  .contact-warpper,
+  .settings-wrapper {
+    margin-right: 0;
+    width: 100vw;
+    padding-bottom: 100px;
+  }
+
+  .sidebar {
+    width: 100vw;
+    height: 70px;
+    top: unset;
+    background-color: var(--purple-color);
+  }
+
+  .sidebar ul {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 100%;
+    width: 60vw;
+    margin: 0 auto;
+  }
+
+  .sidebar ul li {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar ul li:first-child {
+    margin-bottom: 0;
+  }
+
+  .sidebar ul li.profile,
+  .sidebar ul li.light-dark-mode,
+  .sidebar ul li.settings {
+    position: relative;
+    top: unset;
+    left: unset;
+    bottom: unset;
+    transform: unset;
+  }
+
+  .sidebar ul li.active {
+    filter: unset;
+  }
+  .sidebar ul li.active::before {
+    display: none;
+  }
+
+  .sidebar ul li a {
+    flex-direction: column;
+    /* filter: invert(0.7); */
+  }
+
+  .sidebar ul li a .text {
+    position: absolute;
+    font-weight: 400;
+    font-family: 'vazir-bold';
+    transform: translateY(30px);
+    opacity: 0;
+    transition: 0.5s ease;
+  }
+
+  .sidebar ul li a img {
+    transition: 0.3s ease-in;
+  }
+
+  .sidebar ul li.active a img {
+    line-height: 80px;
+    transform: translateY(-31px);
+    filter: invert(1);
+  }
+
+  .sidebar ul li.active a .text {
+    transform: translateY(21px);
+    opacity: 1;
+    color: #fff;
+  }
+
+  .sidebar ul li.settings a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .indicator {
+    position: absolute;
+    top: -41%;
+    left: 100%;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: var(--purple-color);
+    border: 5px solid #fff;
+    /* transform: translateX(189px); */
+    z-index: -1;
+    transition: 0.3s ease-in-out;
+  }
+  .indicator::before,
+  .indicator::after {
+    content: '';
+    position: absolute;
+    top: 43%;
+    left: -21px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px #fff;
+  }
+  .indicator::after {
+    right: -24px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 0;
+    box-shadow: -1px -10px #fff;
+  }
+
+  /*  dark mode  */
+  .sidebar.dark {
+    background-color: var(--dark-blue-color);
+  }
+
+  .sidebar.dark .indicator {
+    background-color: #fff;
+    border-color: var(--navy-blue-color);
+  }
+
+  .sidebar.dark .indicator::after {
+    box-shadow: -1px -10px var(--navy-blue-color);
+  }
+
+  .sidebar.dark .indicator::before {
+    box-shadow: 1px -10px var(--navy-blue-color);
+  }
+
+  /* ----------------- chat box responsive styles -------------------------- */
+
+  .tab-content.chat-box {
+    width: 100vw;
+    background: #fff;
+    height: 100vh;
+    top: 0;
+    padding: 0.5rem;
+    z-index: 999999;
+  }
+
+  .tab-content.chat-box .tab-pane {
+    margin-top: 100px;
+  }
+
+  .tab-content.chat-box .tab-pane .chat-header,
+  .tab-content.chat-box .tab-pane .chat-footer {
+    width: 100vw;
+  }
+
+  /* ------------------------ chat box header -----------------------------*/
+  .right-section .backToDashboard {
+    display: flex;
+  }
+
+  .left-section div {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .sidebar {
+    border-right: 0;
+  }
+  .sidebar ul {
+    width: 100vw;
+  }
+  .sidebar ul li:first-child {
+    display: none;
+  }
+
+  /* ---------------------- chat box header  -------------------------*/
+  .chat-header {
+    height: 60px;
+  }
+
+  .tab-content.chat-box .tab-pane {
+    margin-top: 60px;
+  }
+
+  .left-section div:last-child {
+    margin-left: 0;
+  }
+
+  /* ------------------------- chat box footer --------------------------- */
+  .chat-box .chat-footer img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .chat-box .chat-footer input{
+    font-size: 0.8rem;
+  }
+
+}

@@ -49,7 +49,7 @@ export const useDarkModeDispatch = () => {
 
 export function DarkModeProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState)
-  console.log(state)
+
   return (
       <DarkModeContext.Provider value={state}>
         <DarkModeDispatcher.Provider value={dispatch}>{children}</DarkModeDispatcher.Provider>

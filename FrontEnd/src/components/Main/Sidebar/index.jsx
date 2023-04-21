@@ -14,11 +14,38 @@ import {
   useDarkModeDispatch
 } from '../../../context/DarkModeContext'
 import { useState } from 'react'
+import { createRef } from 'react'
+import { useRef } from 'react'
+import { useEffect } from 'react'
 
 const Index = () => {
+  const messengerRef = useRef()
+  const groupRef = useRef()
+  const settingsRef = useRef()
+
   const dispatch = useDarkModeDispatch()
   const { dark } = useDarkModeContext()
-  const [activePage, setActivePage] = useState('')
+  const [activePage, setActivePage] = useState('messenger')
+  const [position, setPosition] = useState(0)
+
+  const getPosition = () => {
+    if (activePage === 'messenger') {
+      const messengerPosition = messengerRef.current.offsetLeft
+      setPosition(messengerPosition + 3)
+    } else if (activePage === 'group') {
+      const groupPosition = groupRef.current.offsetLeft
+      setPosition(groupPosition + 3)
+    } else if (activePage === 'settings') {
+      const settingsPosition = settingsRef.current.offsetLeft
+      setPosition(settingsPosition + 3)
+    } else {
+      const messengerPosition = messengerRef.current.offsetLeft
+      setPosition(messengerPosition + 3)
+    }
+  }
+  useEffect(() => {
+    getPosition()
+  }, [activePage])
 
   const handleClick = (e) => {
     e.preventDefault()
@@ -32,6 +59,7 @@ const Index = () => {
       type: actionTypes.LIGHT_MODE
     })
   }
+  
 
   return (
     <div className={dark ? 'sidebar dark' : 'sidebar light'}>
@@ -44,20 +72,22 @@ const Index = () => {
             <img src={Logo} alt="logo" className="img-responsive" />
           </Link>
         </li>
-        <li className={activePage === 'messenger' ? 'active item' : 'item'}>
+        <li className={activePage === 'messenger' ? 'active item' : 'item'} ref={messengerRef}>
           <Link
             to="/messenger/chat"
             className="flex-center-between"
             onClick={() => setActivePage('messenger')}>
             <img src={Messenger} alt="Messenger" className="img-responsive" />
+            <div className="text">پیام ها</div>
           </Link>
         </li>
-        <li className={activePage === 'group' ? 'active item' : 'item'}>
+        <li className={activePage === 'group' ? 'active item' : 'item'} ref={groupRef}>
           <Link
             to="/messenger/group"
             className="flex-center-between"
             onClick={() => setActivePage('group')}>
             <img src={People} alt="People" className="img-responsive" />
+            <div className="text">کاربران</div>
           </Link>
         </li>
         {/* <li>
@@ -65,23 +95,29 @@ const Index = () => {
               <img src={Notification} alt="notification" className="img-responsive" />
             </Link>
           </li> */}
-        <li className={activePage === 'settings' ? 'settings active item' : 'settings item'}>
+        <li
+          className={activePage === 'settings' ? 'settings active item' : 'settings item'}
+          ref={settingsRef}>
           <NavLink to="/messenger/settings" onClick={() => setActivePage('settings')}>
             <img src={Settings} alt="settings" className="img-responsive" />
+            <div className="text">تنظیمات</div>
           </NavLink>
         </li>
         <li className="light-dark-mode item">
           <a href="" className="flex-center-between" onClick={(e) => handleClick(e)}>
             <img src={Light_Bulb} alt="Bulb" className="img-responsive" />
+            <div className="text">حالت شب</div>
           </a>
         </li>
-        <li className="profile">
+        <li className="profile item">
           <Link to="/messenger/settings" className="flex-center-between-column">
             <div className="avatar-wrapper">
               <img src={Profile} alt="Profile" className="img-responsive" />
+              <div className="text">پروفایل</div>
             </div>
           </Link>
         </li>
+        <div className="indicator" style={{ left: `${position}px` }}></div>
       </ul>
     </div>
   )

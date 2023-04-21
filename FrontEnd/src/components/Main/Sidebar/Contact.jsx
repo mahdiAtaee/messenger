@@ -6,9 +6,18 @@ import User4 from '../../../Assets/img/default_user-3.jpg'
 import User5 from '../../../Assets/img/default_user-4.jpg'
 
 import { useDarkModeContext } from '../../../context/DarkModeContext'
+import { actionTypes, useShowChatBoxDispatch } from '../../../context/ShowChatContext'
 
 const Contact = () => {
   const { dark } = useDarkModeContext()
+  const dispatch = useShowChatBoxDispatch()
+
+  const handleShowChatBox = (e) => {
+    dispatch({
+      type: actionTypes.SHOW_CHAT_BOX
+    })
+  }
+
   return (
     <div className={dark ? 'contact-warpper dark' : 'contact-warpper'}>
       <div className="header">
@@ -28,13 +37,14 @@ const Contact = () => {
           <li role="presentation">
             <a
               href="#/"
-              className="nav-link active"
+              className="nav-link"
               id="user-one-tab"
               data-bs-toggle="tab"
               data-bs-target="#user-one"
               type="button"
               role="tab"
               aria-controls="user-one"
+              onClick={handleShowChatBox}
               aria-selected="true">
               <span className="user-profile">
                 <img src={User1} alt="user" className="img-responsive" />
@@ -56,6 +66,7 @@ const Contact = () => {
               type="button"
               role="tab"
               aria-controls="user-two"
+              onClick={handleShowChatBox}
               aria-selected="true">
               <span className="user-profile">
                 <img src={User2} alt="user" className="img-responsive" />
@@ -77,6 +88,7 @@ const Contact = () => {
               type="button"
               role="tab"
               aria-controls="user-three"
+              onClick={handleShowChatBox}
               aria-selected="true">
               <span className="user-profile">
                 <img src={User3} alt="user" className="img-responsive" />
@@ -98,6 +110,7 @@ const Contact = () => {
               type="button"
               role="tab"
               aria-controls="user-four"
+              onClick={handleShowChatBox}
               aria-selected="true">
               <span className="user-profile">
                 <img src={User4} alt="user" className="img-responsive" />
@@ -119,6 +132,7 @@ const Contact = () => {
               type="button"
               role="tab"
               aria-controls="user-five"
+              onClick={handleShowChatBox}
               aria-selected="true">
               <span className="user-profile">
                 <img src={User5} alt="user" className="img-responsive" />
