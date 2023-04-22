@@ -26,6 +26,9 @@ const userLoginWorker = function* (action) {
       return httpService.post('auth/login', action.payload)
     })
     yield put({ type: UsersAction.USER_LOGIN_SUCCESS, payload: result.data })
+    yield call(() => {
+      return localStorage.setItem('token', result.data.token)
+    })
   } catch (error) {
     yield put({ type: UsersAction.USER_LOGIN_FAILED, payload: error.response.data })
   }
