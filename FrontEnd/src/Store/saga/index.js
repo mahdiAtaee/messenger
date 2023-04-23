@@ -6,6 +6,7 @@ export default function* root() {
   yield all([
     userHandler.userRegisterWatcher(),
     userHandler.userLoginWatcher(),
-    mainHandler.initWatcher()
+    userHandler.userLocationWatcher(),
+    mainHandler.initWatcher(),
   ])
 }

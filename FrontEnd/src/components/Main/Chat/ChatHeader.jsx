@@ -1,13 +1,15 @@
+// ------------------ import dependencies --------------------
+import { useDarkModeContext } from '../../../context/DarkModeContext'
+import { actionTypes, useShowChatBoxDispatch } from '../../../context/ShowChatContext'
+import { useState } from 'react'
+
+// --------------- import assets -----------------
 import Menu from '../../../Assets/img/dots.png'
 import Call from '../../../Assets/img/telephone.png'
 import VideoCall from '../../../Assets/img/video.png'
 import User from '../../../Assets/img/default_user-5.jpg'
 import BackArrow from '../../../Assets/img/back-arrow.png'
 import Delete from '../../../Assets/img/delete.png'
-
-import { useDarkModeContext } from '../../../context/DarkModeContext'
-import { actionTypes, useShowChatBoxDispatch } from '../../../context/ShowChatContext'
-import { useState } from 'react'
 
 const ChatHeader = ({ username }) => {
   const [showMoreModal, setShowMoreModal] = useState(false)
@@ -39,7 +41,7 @@ const ChatHeader = ({ username }) => {
         </div>
         <div className="more" onClick={() => setShowMoreModal(!showMoreModal)}>
           <img src={Menu} alt="menu" className="img-responsive" />
-          <div class={showMoreModal ? 'more-modal show' : 'more-modal'}>
+          <div className={showMoreModal ? 'more-modal show' : 'more-modal'}>
             <ul>
               <li>
                 <span className="title">حذف پیام ها</span>

@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 
+require("./boot")(app);
 require("./middlewares")(app);
 require("./router")(app);
 

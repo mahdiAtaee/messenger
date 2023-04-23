@@ -1,6 +1,12 @@
+// ------------------ import dependencies ---------------------
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useDarkModeContext } from './context/DarkModeContext'
+import MainLayout from './components/Layout'
+import AuthLayout from './Auth/Layout'
+import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom'
 
+
+// ----------------------- import assets -----------------------
 import SettingsPage from './components/pages/SettingsPage'
 import ContactPage from './components/pages/ContactPage'
 import GroupPage from './components/pages/GroupPage'
@@ -8,16 +14,10 @@ import NotFoundPage from './components/Partials/NotFoundPage'
 import Login from './Auth/Login'
 import Register from './Auth/Register'
 
-import LocationService from './Services/LocationService'
-import MessageService from './Services/MessageService'
-
-import MainLayout from './components/Layout'
-import AuthLayout from './Auth/Layout'
-import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom'
 
 function App() {
   const { dark } = useDarkModeContext()
-  const messageService = new MessageService()
+
   const loggedIn = false
   return (
     <div className={dark ? 'app dark' : 'app'}>

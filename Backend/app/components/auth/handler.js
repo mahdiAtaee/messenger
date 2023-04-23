@@ -34,7 +34,7 @@ exports.login = async (req, res) => {
     success: true,
     isUserLoggedIn: true,
     token: token.sign({
-      uid: loginResult.id,
+      uid: loginResult.hash,
     }),
   });
 };

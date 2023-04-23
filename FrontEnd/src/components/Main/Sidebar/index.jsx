@@ -1,22 +1,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+// ------------------- import dependencies ----------------
+import { useState, useEffect, useRef } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import Logo from '../../../Assets/img/chat.png'
-import Messenger from '../../../Assets/img/messenger.png'
-// import Notification from '../../Assets/img/alarm.png'
-import Settings from '../../../Assets/img/settings.png'
-import Profile from '../../../Assets/img/user.png'
-import Light_Bulb from '../../../Assets/img/light-bulb.png'
-import People from '../../../Assets/img/people.png'
-
 import {
   actionTypes,
   useDarkModeContext,
   useDarkModeDispatch
 } from '../../../context/DarkModeContext'
-import { useState } from 'react'
-import { createRef } from 'react'
-import { useRef } from 'react'
-import { useEffect } from 'react'
+
+// --------------------import assets -------------------
+import Logo from '../../../Assets/img/chat.png'
+import Messenger from '../../../Assets/img/messenger.png'
+import Settings from '../../../Assets/img/settings.png'
+import Profile from '../../../Assets/img/user.png'
+import Light_Bulb from '../../../Assets/img/light-bulb.png'
+import People from '../../../Assets/img/people.png'
 
 const Index = () => {
   const messengerRef = useRef()
@@ -59,7 +57,6 @@ const Index = () => {
       type: actionTypes.LIGHT_MODE
     })
   }
-  
 
   return (
     <div className={dark ? 'sidebar dark' : 'sidebar light'}>

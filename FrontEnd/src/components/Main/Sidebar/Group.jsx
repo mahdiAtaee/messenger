@@ -1,3 +1,11 @@
+// ---------------------- import dependencies -------------------
+import {
+  actionTypes,
+  useDarkModeContext,
+  useDarkModeDispatch
+} from '../../../context/DarkModeContext'
+
+// ---------------------- import assets --------------------
 import Magnifier from '../../../Assets/img/magnifier.png'
 import User1 from '../../../Assets/img/man1.jpg'
 import User2 from '../../../Assets/img/man2.jpg'
@@ -5,11 +13,6 @@ import User3 from '../../../Assets/img/man3.jpg'
 import User4 from '../../../Assets/img/woman1.jpg'
 import User5 from '../../../Assets/img/woman2.jpg'
 import UserIcon from '../../../Assets/img/user.png'
-import {
-  actionTypes,
-  useDarkModeContext,
-  useDarkModeDispatch
-} from '../../../context/DarkModeContext'
 
 const Group = () => {
   const dispatch = useDarkModeDispatch()

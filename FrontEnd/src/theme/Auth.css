@@ -7,6 +7,30 @@
   background: var(--light-gray-color);
 }
 
+.sign::after {
+  content: '';
+  width: 400px;
+  height: 400px;
+  background: var(--purple-color);
+  border-radius: 50%;
+  position: fixed;
+  top: -100px;
+  left: -200px;
+  z-index: 1;
+}
+
+.sign::before {
+  content: '';
+  width: 600px;
+  height: 600px;
+  background: var(--light-blue-color);
+  border-radius: 50%;
+  position: fixed;
+  bottom: -100px;
+  right: -200px;
+  z-index: 1;
+}
+
 .sign .item {
   width: 400px;
   margin: 0 auto;
@@ -14,6 +38,8 @@
   padding: 3rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 20px 10px #0001;
+  position: relative;
+  z-index: 99999;
 }
 
 .sign .item h2 {

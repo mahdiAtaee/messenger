@@ -1,3 +1,8 @@
+// -------------------- import dependencies ----------------------
+import { useDarkModeContext } from '../../../context/DarkModeContext'
+import { actionTypes, useShowChatBoxDispatch } from '../../../context/ShowChatContext'
+
+// ------------------ import assets ---------------------
 import Magnifier from '../../../Assets/img/magnifier.png'
 import User1 from '../../../Assets/img/default_user-5.jpg'
 import User2 from '../../../Assets/img/default_user-1.jpg'
@@ -5,8 +10,6 @@ import User3 from '../../../Assets/img/default_user-2.jpg'
 import User4 from '../../../Assets/img/default_user-3.jpg'
 import User5 from '../../../Assets/img/default_user-4.jpg'
 
-import { useDarkModeContext } from '../../../context/DarkModeContext'
-import { actionTypes, useShowChatBoxDispatch } from '../../../context/ShowChatContext'
 
 const Contact = () => {
   const { dark } = useDarkModeContext()

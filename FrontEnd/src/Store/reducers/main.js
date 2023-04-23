@@ -8,7 +8,7 @@ const main = (state = mainState, action) => {
   let newState = state
   switch (action.type) {
     case MainAction.INIT_SUCCESS:
-      newState = { ...state, ...action.payload }
+      newState = { ...state, isInit: !action.payload.success }
       break
     case MainAction.INIT_FAILED:
       newState = { ...state, ...action.payload }

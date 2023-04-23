@@ -36,3 +36,24 @@ const userLoginWorker = function* (action) {
 export const userLoginWatcher = function* () {
   yield takeLatest(UsersAction.USER_LOGIN, userLoginWorker)
 }
+
+// LOCATION
+const userLocationWorker = function* (action) {
+  try {
+    const result = yield call(() => {
+      const token = localStorage.getItem('token')
+      return httpService.post('me/location', action.payload, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+    })
+
+    yield put({ type: UsersAction.USER_LOCATION_SUCCESS, payload: result.data })
+  } catch (error) {
+    yield put({ type: UsersAction.USER_LOCATION_FAILED, payload: error })
+  }
+}
+export const userLocationWatcher = function* () {
+  yield takeLatest(UsersAction.USER_LOCATION_REQUESTED, userLocationWorker)
+}

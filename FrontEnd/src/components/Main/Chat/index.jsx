@@ -1,8 +1,12 @@
+// ------------------ import dependencies ------------------
 import { useDarkModeContext } from '../../../context/DarkModeContext'
 import { useShowChatBoxContext } from '../../../context/ShowChatContext'
+
+// ------------------ import components ------------------
 import Chat from './Chat'
 import ChatFooter from './ChatFooter'
 import ChatHeader from './ChatHeader'
+
 const Index = () => {
   const { dark } = useDarkModeContext()
   const { showChatBox } = useShowChatBoxContext()
