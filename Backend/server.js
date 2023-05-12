@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const startApp = require("./app");
-const startPeerServer = require("./app/peer");
+const startSocketServer = require("./app/sockServer");
 
 startApp();
-startPeerServer();
+startSocketServer();
