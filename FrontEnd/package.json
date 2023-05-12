@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
     "bootstrap": "^5.2.3",
+    "leaflet": "^1.9.3",
     "peerjs": "^1.4.7",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
@@ -19,6 +20,7 @@
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-saga": "^1.2.3",
+    "sockjs-client": "^1.6.1",
     "web-vitals": "^2.1.0",
     "webpack": "^5.76.3"
   },

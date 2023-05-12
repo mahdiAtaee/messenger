@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const OnlineUsersSchema = new Schema(
   {
-    user: Schema.Types.String,
+    user: Schema.Types.Mixed,
     location: {
       type: {
         type: String,
@@ -18,5 +18,6 @@ const OnlineUsersSchema = new Schema(
     collection: "online_users",
   }
 );
+OnlineUsersSchema.index({ location: "2dsphere" });
 const OnlineUser = model("OnlineUsers", OnlineUsersSchema);
 module.exports = OnlineUser;

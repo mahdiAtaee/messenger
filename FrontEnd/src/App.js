@@ -4,7 +4,7 @@ import { useDarkModeContext } from './context/DarkModeContext'
 import MainLayout from './components/Layout'
 import AuthLayout from './Auth/Layout'
 import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom'
-
+import { connect } from 'react-redux'
 
 // ----------------------- import assets -----------------------
 import SettingsPage from './components/pages/SettingsPage'
@@ -13,12 +13,12 @@ import GroupPage from './components/pages/GroupPage'
 import NotFoundPage from './components/Partials/NotFoundPage'
 import Login from './Auth/Login'
 import Register from './Auth/Register'
+import Dashboard from './components/Main/Dashboard'
 
-
-function App() {
+function App({ isUserLoggedIn }) {
   const { dark } = useDarkModeContext()
-
-  const loggedIn = false
+  
+  const loggedIn = isUserLoggedIn
   return (
     <div className={dark ? 'app dark' : 'app'}>
       <BrowserRouter>
@@ -75,4 +75,11 @@ function App() {
   )
 }
 
-export default App
+export default connect(
+  (state) => {
+    return {
+      isUserLoggedIn: state.main.isUserLoggedIn
+    }
+  },
+  (dispatch) => {}
+)(App)

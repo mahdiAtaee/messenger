@@ -29,7 +29,6 @@ exports.setLocation = async (req, res) => {
       coordinates: [longitude, latitude],
     },
   });
-  console.log(location);
   if (location) {
     res.send({
       success: true,

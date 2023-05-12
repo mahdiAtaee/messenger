@@ -87,11 +87,6 @@ const Index = () => {
             <div className="text">کاربران</div>
           </Link>
         </li>
-        {/* <li>
-            <Link to="/notification" className="flex-center-between">
-              <img src={Notification} alt="notification" className="img-responsive" />
-            </Link>
-          </li> */}
         <li
           className={activePage === 'settings' ? 'settings active item' : 'settings item'}
           ref={settingsRef}>

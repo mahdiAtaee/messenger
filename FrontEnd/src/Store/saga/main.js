@@ -3,7 +3,6 @@ import MainAction from '../Actions/MainAction'
 import HttpService from '../../Services/HttpService'
 const httpService = new HttpService()
 
-
 const initWorker = function* (action) {
   try {
     const result = yield call(() => {
@@ -20,7 +19,20 @@ const initWorker = function* (action) {
   }
 }
 
-
 export const initWatcher = function* () {
   yield takeLatest(MainAction.INIT_REQUESTED, initWorker)
+}
+
+const onlineUsersWorker = function* (action) {
+  console.log('in online users worker')
+  try {
+    yield put({ type: MainAction.UPDATE_ONLINE_USER_SUCCESS, payload: action.payload })
+  } catch (error) {
+    yield put({ type: MainAction.UPDATE_ONLINE_USER_FAILED, payload: error })
+  }
+}
+
+export const onlineUsersWatcher = function* () {
+  console.log('in online users watcher')
+  yield takeLatest(MainAction.UPDATE_ONLINE_USER_INIT, onlineUsersWorker)
 }
