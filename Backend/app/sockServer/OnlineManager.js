@@ -50,7 +50,7 @@ exports.broadCastOnlineUsers = async () => {
 
     if (cachedOnlineUsers) {
       eventHandler.$emit("onlineUsers", {
-        to: onlineUser.user.hash,
+        to: onlineUser.user,
         onlineUsers: JSON.parse(cachedOnlineUsers),
       });
       return true;
@@ -75,7 +75,7 @@ exports.broadCastOnlineUsers = async () => {
     }
     cacheService.set(cacheKey, JSON.stringify(onlineUsers), 5 * 60);
     eventHandler.$emit("onlineUsers", {
-      to: onlineUser.user.hash,
+      to: onlineUser.user,
       onlineUsers: onlineUsers,
     });
   });

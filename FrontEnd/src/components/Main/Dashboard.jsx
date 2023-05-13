@@ -14,6 +14,7 @@ import Group from './Sidebar/Group'
 import Settings from './Sidebar/Settings'
 import Chat from './Chat/index'
 import NotFoundPage from '../Partials/NotFoundPage/NotFoundPage'
+import Users from '../Main/Sidebar/Users/Users'
 import NearBy from '../Main/Map/NearBy'
 
 const Dashboard = ({ currentChat, updateOnilneUsers }) => {
@@ -26,13 +27,13 @@ const Dashboard = ({ currentChat, updateOnilneUsers }) => {
   socketService.$on('onlineUsers', (data) => {
     console.log(data)
   })
-  updateOnilneUsers({ onlineUsers: "data.onlineUsers" })
+  updateOnilneUsers({ onlineUsers: 'data.onlineUsers' })
 
   const CurrentPageSide = () => {
     let component
     switch (location.pathname) {
       case '/messenger/chat':
-        component = <Contact />
+        component = <Users />
         break
       case '/messenger/group':
         component = <Group />

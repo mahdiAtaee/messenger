@@ -14,7 +14,7 @@ const Users = ({ onlineUsers, me }) => {
   const hasOnlineUser = onlineUsers.length > 0
   const renderUsers = onlineUsers.map((user) => {
     if (user.user.hash !== me.hash) {
-      return <User key={user.user.hash} user={user} />
+      return <User key={user.user} user={user} />
     }
     return null
   })

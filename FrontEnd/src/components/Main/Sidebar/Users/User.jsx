@@ -1,4 +1,4 @@
-import { UserIcon } from '../../../../Assets/img/user.png'
+import UserIcon from '../../../../Assets/img/user.png'
 const User = ({ user }) => {
   return (
     <li className="active" role="presentation">

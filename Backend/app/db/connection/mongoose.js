@@ -10,7 +10,6 @@ const connection = mongoose.connect(
   // `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_CLUSTER}.mongodb.net/${MONGO_DATABASE}`,
   `mongodb://${MONGO_HOST}:27017/${MONGO_DATABASE}`,
   {
-    useNewUrlParser: true,
     useUnifiedTopology: true,
   }
 );
