@@ -7,7 +7,7 @@ require("./router")(app);
 
 const startApp = () => {
   app.listen(process.env.APP_PORT, () => {
-    console.log("messenger is running ...");
+    console.log(`messenger is running on port ${process.env.APP_PORT}...`);
   });
 };
 

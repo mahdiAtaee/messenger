@@ -8,6 +8,7 @@
   box-shadow: 0 0 5px 2px #0003;
   position: relative;
   z-index: 9999;
+  transition: .5s ease-in-out;
 }
 
 .contact-warpper .header .page-title {
@@ -146,7 +147,7 @@
 }
 
 .contact-warpper.dark .header .search-bar input {
-  background-color: var(--tealish-blue-color);
+  background-color: #fff;
 }
 
 .contact-warpper.dark .header .page-title {

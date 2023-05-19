@@ -7,6 +7,7 @@ import {
   useDarkModeContext,
   useDarkModeDispatch
 } from '../../../context/DarkModeContext'
+import {connect} from 'react-redux'
 
 // --------------------import assets -------------------
 import Logo from '../../../Assets/img/chat.png'
@@ -16,7 +17,7 @@ import Profile from '../../../Assets/img/user.png'
 import Light_Bulb from '../../../Assets/img/light-bulb.png'
 import People from '../../../Assets/img/people.png'
 
-const Index = () => {
+const Index = ({me}) => {
   const messengerRef = useRef()
   const groupRef = useRef()
   const settingsRef = useRef()
@@ -104,7 +105,7 @@ const Index = () => {
         <li className="profile item">
           <Link to="/messenger/settings" className="flex-center-between-column">
             <div className="avatar-wrapper">
-              <img src={Profile} alt="Profile" className="img-responsive" />
+              <img src={me ? me.avatar : Profile} alt="Profile" className="img-responsive" />
               <div className="text">پروفایل</div>
             </div>
           </Link>
@@ -115,4 +116,6 @@ const Index = () => {
   )
 }
 
-export default Index
+export default connect(state=>({
+  me: state.main.me
+}))(Index)

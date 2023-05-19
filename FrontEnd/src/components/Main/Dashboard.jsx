@@ -25,9 +25,8 @@ const Dashboard = ({ currentChat, updateOnilneUsers }) => {
   const location = useLocation()
 
   socketService.$on('onlineUsers', (data) => {
-    console.log(data)
+    updateOnilneUsers({ onlineUsers: data.onlineUsers })
   })
-  updateOnilneUsers({ onlineUsers: 'data.onlineUsers' })
 
   const CurrentPageSide = () => {
     let component

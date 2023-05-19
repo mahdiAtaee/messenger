@@ -11,15 +11,18 @@ exports.addOnlineUser = async (id, ip) => {
   if (!user) {
     throw new Error(`there is no user with hash ${id} exist!`);
   }
-  const ipAddress = ip;
+  const ipAddress = '5.112.234.41';
   const response = await axios.get(`http://ip-api.com/json/${ipAddress}`);
   const isOnlineUserExist = await OnlineUser.findOne({
-    "user": { $eq: id },
+    "user.hash": { $eq: id },
   }).exec();
   console.log('online user =>',isOnlineUserExist)
+  
   if (isOnlineUserExist) {
+    console.log('in statement')
     return true;
   }
+  const locations = [[35.73961426105659,51.34153521445313],[35.66173490966943,51.447278622656256],[35.707653894004274,51.268064145117194]]
   const selectedLocation =
     locations[Math.floor(Math.random() * locations.length)];
   const onlineUser = await OnlineUser.create({
@@ -29,13 +32,14 @@ exports.addOnlineUser = async (id, ip) => {
       coordinates: [response.data.lat, response.data.lon],
     },
   });
+  console.log(onlineUser)
   await OnlineUser.on("index", (error) => {
     console.log("error index", { error });
   });
   return true;
 };
 exports.removeOnlineUser = async (id) => {
-  await OnlineUser.deleteOne({ "user": { $eq: id } }).exec();
+  await OnlineUser.deleteOne({ "user.hash": { $eq: id } }).exec();
   return true;
 };
 exports.broadCastOnlineUsers = async () => {
@@ -50,7 +54,7 @@ exports.broadCastOnlineUsers = async () => {
 
     if (cachedOnlineUsers) {
       eventHandler.$emit("onlineUsers", {
-        to: onlineUser.user,
+        to: onlineUser.user.hash,
         onlineUsers: JSON.parse(cachedOnlineUsers),
       });
       return true;
@@ -75,7 +79,7 @@ exports.broadCastOnlineUsers = async () => {
     }
     cacheService.set(cacheKey, JSON.stringify(onlineUsers), 5 * 60);
     eventHandler.$emit("onlineUsers", {
-      to: onlineUser.user,
+      to: onlineUser.user.hash,
       onlineUsers: onlineUsers,
     });
   });

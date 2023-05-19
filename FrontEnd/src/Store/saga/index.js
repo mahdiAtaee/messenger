@@ -8,5 +8,6 @@ export default function* root() {
     userHandler.userLoginWatcher(),
     userHandler.userLocationWatcher(),
     mainHandler.initWatcher(),
+    mainHandler.onlineUsersWatcher()
   ])
 }

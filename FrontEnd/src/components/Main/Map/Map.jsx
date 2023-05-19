@@ -1,8 +1,10 @@
 // -------------- import Dependencies -----------------
 import { useLayoutEffect } from 'react'
 import L from 'leaflet'
+import { actionTypes, useShowMapDispatch } from '../../../context/ShowIndexPage'
 
 const Map = ({ current, zoom, OnlineUsers }) => {
+  const dispatch = useShowMapDispatch()
   useLayoutEffect(() => {
     const { lat, lng } = current
     const map = L.map('map').setView([lat, lng], zoom)
@@ -18,8 +20,15 @@ const Map = ({ current, zoom, OnlineUsers }) => {
       map.remove()
     }
   })
+
+  const ShowUsersList = () => {
+    dispatch({
+      type:actionTypes.SHOW_USERS_LIST
+    })
+  }
   return (
     <div className="chat">
+      <button className='show-users-list' onClick={() => ShowUsersList()}>نمایش لیست کاربران</button>
       <div id="map"></div>
     </div>
   )

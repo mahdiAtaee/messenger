@@ -11,6 +11,8 @@
     margin-right: 0;
     width: 100vw;
     padding-bottom: 100px;
+    background-color: #fff;
+    transition: 0.5s ease-in-out;
   }
 
   .sidebar {
@@ -164,7 +166,19 @@
     width: 100vw;
   }
 
-  /* ------------------------ chat box header -----------------------------*/
+  .show-map-button {
+    display: block !important;
+  }
+
+  .show-users-list{
+    display: block;
+  }
+
+  /* ------------------------ chat box -----------------------------*/
+  .chat {
+    width: 100vw !important;
+  }
+  
   .right-section .backToDashboard {
     display: flex;
   }
@@ -205,14 +219,21 @@
     height: 15px;
   }
 
-  .chat-box .chat-footer input{
+  .chat-box .chat-footer input {
     font-size: 0.8rem;
   }
 
   /* --------------------------- auth ---------------------------*/
-  .sign .item{
+  .sign .item {
     width: 90vw;
     padding: 2rem;
   }
 
+  .show-map-button {
+    display: block !important;
+  }
+
+  .show-users-list{
+    display: block;
+  }
 }
