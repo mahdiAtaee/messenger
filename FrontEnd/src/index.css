@@ -359,12 +359,12 @@ ul {
   display: none;
 }
 
-#display-none{
+#display-none {
   top: 100vh;
   opacity: 0;
 }
 
-.show-users-list{
+.show-users-list {
   position: fixed;
   top: 1rem;
   right: 1rem;
@@ -373,4 +373,8 @@ ul {
   border: 0;
   background: #00cdff;
   display: none;
+}
+
+.swal2-container {
+  z-index: 999999999;
 }

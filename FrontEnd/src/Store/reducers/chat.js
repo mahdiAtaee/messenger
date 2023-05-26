@@ -14,6 +14,28 @@ const chat = (state = chatState, action) => {
     case ChatActions.NEW_CHAT_FAILED:
       newState = { ...state, currentChat: null }
       break
+    case ChatActions.SEND_MESSAGE_SUCCESS:
+      newState = {
+        ...state,
+        currentChatMessage: [...state.currentChatMessage, { ...action.payload }]
+      }
+      break
+    case ChatActions.SEND_MESSAGE_FAILED:
+      newState = { ...state }
+      break
+    case ChatActions.SAVE_MESSAGE_SUCCESS:
+      newState = {
+        ...state,
+        currentChatMessage: [...state.currentChatMessage, { ...action.payload }]
+      }
+      break
+    case ChatActions.SAVE_MESSAGE_FAILED:
+      newState = { ...state }
+      break
+    case ChatActions.FINISH_CHAT_SUCCESS:
+      newState = { ...state, currentChat: null, currentChatMessages: [] }
+      break
+    case ChatActions.FINISH_CHAT_FAILED:
     default:
       break
   }

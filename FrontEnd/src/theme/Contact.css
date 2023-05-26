@@ -88,6 +88,10 @@
   border-radius: 0.8rem;
 }
 
+.contact-warpper .contact ul li a.active .user-icon{
+  filter: invert(1);
+}
+
 .contact-warpper .contact ul li a:hover .user-chat span {
   color: var(--gray-color);
 }
@@ -180,7 +184,7 @@
   color: #fff !important;
 }
 
-.contact-warpper.dark .contact ul li a .user-icon img {
+.contact-warpper.dark .contact ul li a .user-icon {
   filter: invert(0.5);
 }
 

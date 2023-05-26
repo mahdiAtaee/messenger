@@ -1,20 +1,31 @@
 // ------------------ import dependencies --------------------
 import { useDarkModeContext } from '../../../context/DarkModeContext'
 import { actionTypes, useShowChatBoxDispatch } from '../../../context/ShowChatContext'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import ChatContext from '../../../context/ChatContext'
+import { connect } from 'react-redux'
 
 // --------------- import assets -----------------
 import Menu from '../../../Assets/img/dots.png'
 import Call from '../../../Assets/img/telephone.png'
 import VideoCall from '../../../Assets/img/video.png'
-import User from '../../../Assets/img/default_user-5.jpg'
 import BackArrow from '../../../Assets/img/back-arrow.png'
 import Delete from '../../../Assets/img/delete.png'
 
-const ChatHeader = ({ username }) => {
+const ChatHeader = ({ currentChat, me }) => {
+  const { eventManager } = useContext(ChatContext)
   const [showMoreModal, setShowMoreModal] = useState(false)
   const { dark } = useDarkModeContext()
   const dispatch = useShowChatBoxDispatch()
+  const { participants } = currentChat
+  const otherParticipantHash = Object.keys(participants)
+    .filter((item) => item !== me.hash)
+    .pop()
+  const { name, avatar } = participants[otherParticipantHash]
+  const finishCurrentChat = (e) => {
+    e.preventDefault()
+    eventManager.fire('finishChat', { chatID: currentChat.id, to: otherParticipantHash })
+  }
   const handleBackToDashboard = () => {
     dispatch({
       type: actionTypes.HIDE_CHAT_BOX
@@ -28,9 +39,12 @@ const ChatHeader = ({ username }) => {
           <img src={BackArrow} alt="back" />
         </div>
         <div className="user-profile">
-          <img src={User} alt="" className="img-responsive" />
+          <img src={avatar} alt="" className="img-responsive" />
         </div>
-        <div className="username">{username}</div>
+        <div className="name-wrapper">
+          <div className="username">{name}</div>
+          <div className="user-status">آنلاین</div>
+        </div>
       </div>
       <div className="left-section">
         <div className="call">
@@ -47,6 +61,10 @@ const ChatHeader = ({ username }) => {
                 <span className="title">حذف پیام ها</span>
                 <img src={Delete} alt="Delete" />
               </li>
+              <li onClick={(e) => finishCurrentChat(e)}>
+                <span className="title">پایان چت</span>
+                <img src={Delete} alt="Delete" />
+              </li>
             </ul>
           </div>
         </div>
@@ -55,4 +73,7 @@ const ChatHeader = ({ username }) => {
   )
 }
 
-export default ChatHeader
+export default connect((state) => ({
+  me: state.main.me,
+  currentChat: state.chat.currentChat
+}))(ChatHeader)

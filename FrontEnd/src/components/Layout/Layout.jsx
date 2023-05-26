@@ -45,7 +45,7 @@ const Layout = ({ children, isInit, init, dispatchLocation, me }) => {
       socket.connect()
       return {
         peerService: peerService.init(),
-        eventManger: new EventManager(),
+        eventManager: new EventManager(),
         socketService: socket
       }
     }

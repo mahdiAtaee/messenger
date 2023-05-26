@@ -21,7 +21,7 @@
   margin-top: 2rem;
 }
 
-.sidebar ul li a .text{
+.sidebar ul li a .text {
   display: none;
 }
 
@@ -73,11 +73,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .sidebar ul li.profile a .avatar-wrapper img {
   width: 100%;
   height: auto;
+  border-radius: 50%;
+}
+
+.sidebar ul li.profile a .avatar-wrapper::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #1efd1e;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   border-radius: 50%;
 }
 

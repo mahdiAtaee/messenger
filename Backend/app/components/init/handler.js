@@ -17,7 +17,6 @@ exports.init = async (req, res) => {
     const user = await User.where({ hash: uid })
       .fetch()
       .then((user) => user);
-      console.log("user =>",user.attributes)
     return res.send({
       success: true,
       me: buildUserProfile(user),

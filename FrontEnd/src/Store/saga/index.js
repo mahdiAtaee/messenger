@@ -1,6 +1,7 @@
 import { all } from 'redux-saga/effects'
 import * as userHandler from './users'
 import * as mainHandler from './main'
+import * as chatHandler from './chat'
 
 export default function* root() {
   yield all([
@@ -8,6 +9,10 @@ export default function* root() {
     userHandler.userLoginWatcher(),
     userHandler.userLocationWatcher(),
     mainHandler.initWatcher(),
-    mainHandler.onlineUsersWatcher()
+    chatHandler.sendMessageWatcher(),
+    chatHandler.saveMessageWatcher(),
+    chatHandler.initChatWatcher(),
+    mainHandler.onlineUsersWatcher(),
+    chatHandler.finishChatWatcher()
   ])
 }

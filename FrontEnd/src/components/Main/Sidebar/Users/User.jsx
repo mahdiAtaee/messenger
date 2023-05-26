@@ -1,6 +1,15 @@
+// ---------------------- import dependecies ---------------
+import { useContext } from 'react'
+import ChatContext from "../../../../context/ChatContext";
+// ---------------------- import assets ---------------
 import UserIcon from '../../../../Assets/img/user.png'
 const User = ({ user }) => {
-  console.log(user.user)
+  const {eventManager} = useContext(ChatContext);
+  const handleChatRequest = (e, user) => {
+    e.preventDefault()
+    eventManager.fire('chatRequest', user)
+  }
+  console.log(user)
   return (
     <li className="active" role="presentation">
       <a
@@ -19,7 +28,7 @@ const User = ({ user }) => {
         <div className="user-chat">
           <span className="username">{user.user.name}</span>
         </div>
-        <div className="user-icon">
+        <div className="user-icon" onClick={e => handleChatRequest(e, user.user)}>
           <img src={UserIcon} alt="+" className="img-responsive" />
         </div>
       </a>

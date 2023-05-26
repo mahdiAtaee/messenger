@@ -24,7 +24,6 @@ export const initWatcher = function* () {
 }
 
 const onlineUsersWorker = function* (action) {
-  console.log('in online users worker')
   try {
     yield put({ type: MainAction.UPDATE_ONLINE_USER_SUCCESS, payload: action.payload })
   } catch (error) {
@@ -33,6 +32,5 @@ const onlineUsersWorker = function* (action) {
 }
 
 export const onlineUsersWatcher = function* () {
-  console.log('in online users watcher')
   yield takeLatest(MainAction.UPDATE_ONLINE_USER_INIT, onlineUsersWorker)
 }

@@ -16,10 +16,8 @@ exports.addOnlineUser = async (id, ip) => {
   const isOnlineUserExist = await OnlineUser.findOne({
     "user.hash": { $eq: id },
   }).exec();
-  console.log('online user =>',isOnlineUserExist)
   
   if (isOnlineUserExist) {
-    console.log('in statement')
     return true;
   }
   const locations = [[35.73961426105659,51.34153521445313],[35.66173490966943,51.447278622656256],[35.707653894004274,51.268064145117194]]
@@ -32,7 +30,7 @@ exports.addOnlineUser = async (id, ip) => {
       coordinates: [response.data.lat, response.data.lon],
     },
   });
-  console.log(onlineUser)
+  
   await OnlineUser.on("index", (error) => {
     console.log("error index", { error });
   });
@@ -51,7 +49,6 @@ exports.broadCastOnlineUsers = async () => {
     const userLocation = onlineUser.location.coordinates;
     const cacheKey = `online-user-near-by-${onlineUser.user.hash}`;
     const cachedOnlineUsers = await cacheService.get(cacheKey);
-
     if (cachedOnlineUsers) {
       eventHandler.$emit("onlineUsers", {
         to: onlineUser.user.hash,

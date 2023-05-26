@@ -41,7 +41,6 @@ const main = (state = mainState, action) => {
       newState = { ...state, ...action.payload, isInit: true, isUserLoggedIn: false }
       break
     case MainAction.UPDATE_ONLINE_USER_SUCCESS:
-      console.log(action.payload)
       newState = { ...state, onlineUsers: action.payload.onlineUsers }
       break
     case MainAction.UPDATE_ONLINE_USER_FAILED:

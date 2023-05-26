@@ -21,6 +21,8 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-saga": "^1.2.3",
     "sockjs-client": "^1.6.1",
+    "sweetalert2": "^11.7.5",
+    "sweetalert2-react-content": "^5.0.7",
     "web-vitals": "^2.1.0",
     "webpack": "^5.76.3"
   },

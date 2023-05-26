@@ -18,6 +18,7 @@ const Users = ({ onlineUsers, me }) => {
   const dispatch = useShowMapDispatch()
   const { isShowMap } = useShowMapContext()
   const { dark } = useDarkModeContext()
+
   const hasOnlineUser = onlineUsers.length > 0
   const renderUsers = onlineUsers.map((user) => {
     if (user.user.hash !== me.hash) {
@@ -26,12 +27,12 @@ const Users = ({ onlineUsers, me }) => {
     return null
   })
   const ShowMap = () => {
-    dispatch({type:actionTypes.SHOW_MAP})
+    dispatch({ type: actionTypes.SHOW_MAP })
   }
   return (
     <div
       className={dark ? 'contact-warpper dark' : 'contact-warpper light'}
-      id={isShowMap && 'display-none'}>
+      id={isShowMap !== false ? 'display-none' : ''}>
       <div className="header">
         <div className="top-bar">
           <div className="page-title">کاربران آنلاین</div>

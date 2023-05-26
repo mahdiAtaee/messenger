@@ -45,6 +45,23 @@
   height: 100%;
   object-position: center;
   margin-left: 1rem;
+  position: relative;
+}
+
+.right-section .user-profile::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #1efd1e;
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  border-radius: 50%;
+}
+
+.right-section .name-wrapper .user-status {
+  color: var(--gray-color);
+  font-size: 0.9rem;
 }
 
 .left-section {
@@ -121,6 +138,10 @@
 }
 
 .chat-header.dark .right-section .username {
+  color: var(--light-gray-color);
+}
+
+.chat-header.dark .right-section .name-wrapper .user-status {
   color: var(--light-gray-color);
 }
 

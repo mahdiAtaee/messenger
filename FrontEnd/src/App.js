@@ -80,6 +80,5 @@ export default connect(
     return {
       isUserLoggedIn: state.main.isUserLoggedIn
     }
-  },
-  (dispatch) => {}
+  }
 )(App)
