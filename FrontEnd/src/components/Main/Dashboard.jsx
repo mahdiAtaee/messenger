@@ -98,7 +98,7 @@ const Dashboard = ({ me, currentChat, updateOnlineUsers, initNewChat, finishChat
     })
     setRequestReceiver(connection)
   })
-
+  
   eventManager.on('finishChat', (data) => {
     finishChat(data)
     socketService.$emit('finishChat', data)

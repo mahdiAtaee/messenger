@@ -31,6 +31,10 @@ const ChatHeader = ({ currentChat, me }) => {
       type: actionTypes.HIDE_CHAT_BOX
     })
   }
+  const startVideoCall = (e) => {
+    e.preventDefault()
+    eventManager.fire('startVideoCall',{to: otherParticipantHash })
+  }
 
   return (
     <header className={dark ? 'chat-header dark' : 'chat-header light'}>
@@ -50,7 +54,7 @@ const ChatHeader = ({ currentChat, me }) => {
         <div className="call">
           <img src={Call} alt="call" className="img-responsive" />
         </div>
-        <div className="video-call">
+        <div className="video-call" onClick={e => startVideoCall(e)}>
           <img src={VideoCall} alt="Video call" className="img-responsive" />
         </div>
         <div className="more" onClick={() => setShowMoreModal(!showMoreModal)}>

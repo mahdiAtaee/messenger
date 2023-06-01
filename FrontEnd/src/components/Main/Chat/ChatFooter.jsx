@@ -17,7 +17,7 @@ const ChatFooter = () => {
   return (
     <div className="chat-footer">
       <form>
-        <input type="text" id="sendMessage" autoComplete='false' placeholder="پیام خود را بنویسید ..." />
+        <input type="text" id="sendMessage" autoComplete='off' placeholder="پیام خود را بنویسید ..." />
         <button
           onClick={(e) => {
             handleSendMessage(e)
