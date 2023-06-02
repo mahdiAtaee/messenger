@@ -38,8 +38,8 @@ exports.init = async (req, res) => {
         },
       ],
     });
-  } 
-  if(chat) {
+  }
+  if (chat) {
     return res.send({
       success: true,
       chat: {
@@ -63,7 +63,7 @@ exports.saveMessage = async (req, res) => {
     participants: {
       $elemMatch: { hash: sender },
     },
-    is_finished:false
+    is_finished: false,
   }).exec();
   if (!chat) {
     return res.status(422).send({
@@ -72,7 +72,7 @@ exports.saveMessage = async (req, res) => {
     });
   }
   await chat.messages.push({ sender, content: body });
-  await chat.save()
+  await chat.save();
   return res.send({
     success: true,
     message: "پیام با موفقیت ذخیره گردید",
@@ -83,21 +83,56 @@ exports.finishChat = async (req, res) => {
   const { chatID } = req.body;
   let chat = await Chat.findOne({ _id: chatID }).exec();
   if (chat && chat.is_finished) {
-      return res.send({
-          success: true,
-          message: 'گفتگو قبلا به پایان رسیده است'
-      });
+    return res.send({
+      success: true,
+      message: "گفتگو قبلا به پایان رسیده است",
+    });
   }
   if (!chat) {
-      return res.status(422).send({
-          success: false,
-          message: 'گفتگویی با این مشخصات در سیستم وجود ندارد'
-      });
+    return res.status(422).send({
+      success: false,
+      message: "گفتگویی با این مشخصات در سیستم وجود ندارد",
+    });
   }
   chat.is_finished = true;
   await chat.save();
   return res.send({
-      success: true,
-      message: 'گفتگو با موفقیت به پایان رسید'
+    success: true,
+    message: "گفتگو با موفقیت به پایان رسید",
+  });
+};
+
+exports.fetchRecentChat = async (req, res) => {
+  const { chatID } = req.body;
+  let chat = await Chat.findOne(
+    { _id: chatID },
+    { messages: { $slice: -50 } }
+  ).exec();
+  if (!chat) {
+    return res.status(404).send({
+      success: false,
+      message: "گفتگویی با این مشخصات در سیستم پیدا نشد",
+    });
+  }
+  const chatParticipants = {};
+  chat.participants.forEach((participant) => {
+    chatParticipants[participant.hash] = { ...participant.details };
+  });
+  return res.send({
+    success: true,
+    chat: {
+      currentChat: {
+        id: chatID,
+        participants: chatParticipants,
+        is_finished: chat.is_finished,
+      },
+      currentChatMessages: chat.messages.map((message) => {
+        return {
+          body: message.content,
+          created_at: message.created_at,
+          sender: message.sender,
+        };
+      }),
+    },
   });
 };

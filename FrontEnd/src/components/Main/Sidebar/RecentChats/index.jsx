@@ -1,18 +1,18 @@
 // ---------------------- import dependencies -------------------
-import { useDarkModeContext } from '../../../context/DarkModeContext'
+import { useDarkModeContext } from '../../../../context/DarkModeContext'
 import { connect } from 'react-redux'
 
 // ---------------------- import components ------------------
-import RecentChat from './RecentChats/RecentChatItem'
-import NoRecentChat from './RecentChats/NoRecentChat'
+import RecentChatItem from './RecentChatItem'
+import NoRecentChat from './NoRecentChat'
 
 // ---------------------- import assets --------------------
-import Magnifier from '../../../Assets/img/magnifier.png'
+import Magnifier from '../../../../Assets/img/magnifier.png'
 
-const Group = ({recentChats}) => {
+const Index = ({recentChats}) => {
   const { dark } = useDarkModeContext()
-  const hasRecentChat = recentChat.length > 0
-  const renderRecentChats = recentChats.map(recentChat => <RecentChat key={recentChat._id} recentChat={recentChat} />)
+  const hasRecentChat = recentChats.length > 0
+  const renderRecentChats = recentChats.map(recentChat => <RecentChatItem key={recentChat._id} recentChat={recentChat} />)
 
   return (
     <div className={dark ? 'contact-warpper dark' : 'contact-warpper light'}>
@@ -39,5 +39,5 @@ const Group = ({recentChats}) => {
 }
 
 export default connect((state) => ({
-  recentChats: state.main.recentChat
-}))(Group)
+  recentChats: state.main.recentChats
+}))(Index)

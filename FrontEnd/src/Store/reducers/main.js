@@ -7,7 +7,8 @@ const mainState = {
   isInit: true,
   isUserLoggedIn: false,
   me: null,
-  onlineUsers: []
+  onlineUsers: [],
+  recentChats: []
 }
 
 const main = (state = mainState, action) => {
@@ -34,7 +35,8 @@ const main = (state = mainState, action) => {
         ...state,
         isInit: false,
         me: action.payload.me,
-        isUserLoggedIn: true
+        isUserLoggedIn: true,
+        recentChats: action.payload.userRecentChat
       }
       break
     case MainAction.INIT_FAILED:

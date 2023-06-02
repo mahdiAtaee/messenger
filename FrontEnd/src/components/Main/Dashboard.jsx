@@ -18,8 +18,17 @@ import Chat from './Chat'
 import NotFoundPage from '../Partials/NotFoundPage/NotFoundPage'
 import Users from '../Main/Sidebar/Users/Users'
 import NearBy from '../Main/Map/NearBy'
+import RecentChats from './Sidebar/RecentChats'
 
-const Dashboard = ({ me, currentChat, updateOnlineUsers, initNewChat, finishChat }) => {
+const Dashboard = ({
+  me,
+  currentChat,
+  updateOnlineUsers,
+  initNewChat,
+  finishChat,
+  finishCall,
+  activateRecentChat
+}) => {
   const chat = useContext(ChatContext)
   const { peerService, eventManager, socketService } = chat
   const [requestSender, setRequestSender] = useState(null)
@@ -41,8 +50,8 @@ const Dashboard = ({ me, currentChat, updateOnlineUsers, initNewChat, finishChat
           sender: me.hash,
           answer: true
         })
-      } 
-      if(!result.value) {
+      }
+      if (!result.value) {
         socketService.$emit('newChatResponse', {
           to: data.requestor,
           sender: me.hash,
@@ -54,6 +63,10 @@ const Dashboard = ({ me, currentChat, updateOnlineUsers, initNewChat, finishChat
 
   socketService.$on('finishChat', (data) => {
     finishChat(data)
+  })
+
+  socketService.$on('finishCall', (data) => {
+    finishCall(data)
   })
 
   socketService.$on('newChatResponse', (data) => {
@@ -98,10 +111,19 @@ const Dashboard = ({ me, currentChat, updateOnlineUsers, initNewChat, finishChat
     })
     setRequestReceiver(connection)
   })
-  
+
   eventManager.on('finishChat', (data) => {
     finishChat(data)
     socketService.$emit('finishChat', data)
+  })
+
+  eventManager.on('finishCall', (data) => {
+    finishCall(data)
+    socketService.$emit('finishCall', data)
+  })
+
+  eventManager.on('activateRecentChat', (data) => {
+    activateRecentChat(data)
   })
 
   const CurrentPageSide = () => {
@@ -111,7 +133,7 @@ const Dashboard = ({ me, currentChat, updateOnlineUsers, initNewChat, finishChat
         component = <Users />
         break
       case '/messenger/group':
-        component = <Group />
+        component = <RecentChats />
         break
       case '/messenger/settings':
         component = <Settings />
@@ -143,8 +165,12 @@ export default connect(
     return {
       initNewChat: (payload) => dispatch({ type: ChatAction.NEW_CHAT_INIT, payload }),
       finishChat: (payload) => dispatch({ type: ChatAction.FINISH_CHAT_INIT, payload }),
+      finishCall: (payload) => dispatch({ type: ChatAction.FINISH_CALL_INIT, payload }),
       updateOnlineUsers: (payload) =>
-        dispatch({ type: MainAction.UPDATE_ONLINE_USER_INIT, payload })
+        dispatch({ type: MainAction.UPDATE_ONLINE_USER_INIT, payload }),
+      activateRecentChat: (payload) => {
+        dispatch({ type: ChatAction.ACTIVATE_RECENT_CHAT_INIT, payload })
+      }
     }
   }
 )(Dashboard)

@@ -13,6 +13,9 @@ export default function* root() {
     chatHandler.saveMessageWatcher(),
     chatHandler.initChatWatcher(),
     mainHandler.onlineUsersWatcher(),
-    chatHandler.finishChatWatcher()
+    chatHandler.finishChatWatcher(),
+    chatHandler.startCallWatcher(),
+    chatHandler.finishCallWatcher(),
+    chatHandler.activateChatWatcher()
   ])
 }

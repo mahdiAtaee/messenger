@@ -8,7 +8,7 @@
   box-shadow: 0 0 5px 2px #0003;
   position: relative;
   z-index: 9999;
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .contact-warpper .header .page-title {
@@ -79,25 +79,31 @@
   color: #fff;
 }
 
-.contact-warpper .contact ul li a:hover {
+.contact-warpper .contact ul li a:hover{
   background-color: var(--light-gray-color);
   border-radius: 0.8rem;
 }
+
+
 .contact-warpper .contact ul li a.active {
-  background-color: var(--navy-blue-color);
+  background-color: var(--dark-blue-color);
   border-radius: 0.8rem;
 }
 
-.contact-warpper .contact ul li a.active .user-icon{
+.contact-warpper .contact ul li a.active .message-time span,
+.contact-warpper .contact ul li a.active .user-chat span,
+.contact-warpper .contact ul li a.active .username span{
+  color: #fff !important;
+}
+
+.contact-warpper .contact ul li a.active .user-icon {
   filter: invert(1);
 }
 
 .contact-warpper .contact ul li a:hover .user-chat span {
   color: var(--gray-color);
 }
-.contact-warpper .contact ul li a.active .user-chat span {
-  color: #fff !important;
-}
+
 
 .contact-warpper .contact ul li a span.user-profile {
   width: 55px;
@@ -125,7 +131,7 @@
 }
 
 .contact-warpper .contact ul li a .user-chat span:last-child {
-  font-size: var(--font-size);
+  font-size: calc(var(--font-size) + 0.1rem);
   font-weight: 400;
   color: var(--gray-color);
   margin-top: 0.5rem;
@@ -142,6 +148,16 @@
 .contact-warpper .contact ul li a .user-chat span.username {
   font-size: calc(var(--font-size) + 0.3rem);
   color: #000;
+}
+
+.message-time {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}
+
+.message-time span {
+  font-size: var(--font-size);
 }
 
 /* dark mode  */
@@ -161,14 +177,8 @@
 .contact-warpper.dark .contact ul li a:hover .badge {
   color: var(--gray-color);
 }
-.contact-warpper.dark .contact ul li a.active .badge {
-  color: #fff;
-}
 
-.contact-warpper.dark .contact ul li a:hover {
-  background-color: var(--dark-blue-color);
-}
-
+.contact-warpper.dark .contact ul li a:hover,
 .contact-warpper.dark .contact ul li a.active {
   background-color: var(--dark-blue-color);
 }
@@ -177,27 +187,20 @@
   color: var(--light-gray-color);
 }
 
-.contact-warpper.dark .contact ul li a:hover .user-chat span {
-  color: #fff;
-}
-.contact-warpper.dark .contact ul li a.active .user-chat span {
-  color: #fff !important;
-}
-
 .contact-warpper.dark .contact ul li a .user-icon {
   filter: invert(0.5);
 }
 
-.contact-warpper.dark .contact ul li a:hover .user-icon img {
-  filter: invert(1);
-}
+.contact-warpper.dark .contact ul li a:hover .user-icon img,
 .contact-warpper.dark .contact ul li a.active .user-icon img {
   filter: invert(1);
 }
 
-.contact-warpper.dark .contact ul li a:hover .badge {
-  color: #fff !important;
-}
+.contact-warpper.dark .contact ul li a:hover .badge,
+.contact-warpper.dark .contact ul li a.active .badge,
+.contact-warpper.dark .contact ul li a .message-time span,
+.contact-warpper.dark .contact ul li a.active .user-chat span,
+.contact-warpper.dark .contact ul li a:hover .user-chat span,
 .contact-warpper.dark .contact ul li a.active .badge {
   color: #fff !important;
 }

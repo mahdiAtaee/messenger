@@ -8,6 +8,9 @@ eventHandler.$on('newChatResponse', data => {
 eventHandler.$on('finishChat', data => {
     eventHandler.$emit('finishChat', data);
 });
+eventHandler.$on('finishCall', data => {
+    eventHandler.$emit('finishCall', data);
+});
 exports.parseMessage = (message) => {
     const decodedMessage = JSON.parse(message);
     const { event, ...data } = decodedMessage;
