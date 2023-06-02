@@ -14,6 +14,7 @@ import NotFoundPage from './components/Partials/NotFoundPage'
 import Login from './Auth/Login'
 import Register from './Auth/Register'
 import Dashboard from './components/Main/Dashboard'
+import RecentChats from './components/Main/Sidebar/RecentChats'
 
 function App({ isUserLoggedIn }) {
   const { dark } = useDarkModeContext()
@@ -26,8 +27,8 @@ function App({ isUserLoggedIn }) {
           <Route path="/messenger/:path?" exact>
             <MainLayout>
               <Switch>
-                <Route path="/messenger/group">
-                  <GroupPage />
+                <Route path="/messenger/recentChats">
+                  <RecentChats />
                 </Route>
                 <Route path="/messenger/chat">
                   <ContactPage />

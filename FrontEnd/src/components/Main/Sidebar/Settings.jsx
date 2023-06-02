@@ -3,10 +3,29 @@ import Accordion from 'react-bootstrap/Accordion'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { useDarkModeContext } from '../../../context/DarkModeContext'
+import {
+  useDarkModeContext,
+  useDarkModeDispatch,
+  actionTypes
+} from '../../../context/DarkModeContext'
+import { connect } from 'react-redux'
 
-const Settings = () => {
+const Settings = ({ me }) => {
   const { dark } = useDarkModeContext()
+  const dispatch = useDarkModeDispatch()
+  const handleChangeDark = () => {
+    if (!dark) {
+      dispatch({
+        type: actionTypes.DARK_MODE
+      })
+      return
+    }
+    dispatch({
+      type: actionTypes.LIGHT_MODE
+    })
+  }
+  const firstName = me.name.split(" ")[0]
+  const lastName = me.name.split(" ")[1]
   return (
     <div className={dark ? 'settings-wrapper dark' : 'settings-wrapper'}>
       <div className="header">
@@ -23,23 +42,23 @@ const Settings = () => {
               <Container className="user-account">
                 <Row>
                   <Col lg={6} className="input-wrapper">
-                    <input type="text" id="firstName" placeholder=" " />
+                    <input type="text" id="firstName" placeholder=" " value={firstName} />
                     <label htmlFor="firstName">نام</label>
                   </Col>
                   <Col lg={6} className="input-wrapper">
-                    <input type="text" id="lastName" placeholder=" " />
+                    <input type="text" id="lastName" placeholder=" " value={lastName} />
                     <label htmlFor="lastName">نام خانوادگی</label>
                   </Col>
                 </Row>
                 <Row>
                   <Col className="input-wrapper">
-                    <input type="email" id="email" placeholder=" " />
+                    <input type="email" id="email" placeholder=" " value={me.email} />
                     <label htmlFor="email">ایمیل</label>
                   </Col>
                 </Row>
                 <Row>
                   <Col className="input-wrapper">
-                    <input type="password" id="password" placeholder=" " />
+                    <input type="password" id="password" placeholder=" " value={me.hash} />
                     <label htmlFor="password">رمزعبور</label>
                   </Col>
                 </Row>
@@ -95,7 +114,7 @@ const Settings = () => {
                     </div>
                     <div className="checkbox-wrapper">
                       <label className="switch">
-                        <input type="checkbox" id="access-camera" />
+                        <input type="checkbox" id="access-camera" checked="true" />
                         <span className="slider"></span>
                       </label>
                     </div>
@@ -111,7 +130,7 @@ const Settings = () => {
                     </div>
                     <div className="checkbox-wrapper">
                       <label className="switch">
-                        <input type="checkbox" id="access_microphone" />
+                        <input type="checkbox" id="access_microphone" checked="true" />
                         <span className="slider"></span>
                       </label>
                     </div>
@@ -153,7 +172,7 @@ const Settings = () => {
                     </div>
                     <div className="checkbox-wrapper">
                       <label className="switch">
-                        <input type="checkbox" id="on-off-sound" />
+                        <input type="checkbox" id="on-off-sound" checked="true" />
                         <span className="slider"></span>
                       </label>
                     </div>
@@ -179,7 +198,12 @@ const Settings = () => {
                     </div>
                     <div className="checkbox-wrapper">
                       <label className="switch">
-                        <input type="checkbox" id="dark-mode" />
+                        <input
+                          type="checkbox"
+                          id="dark-mode"
+                          checked={dark}
+                          onClick={() => handleChangeDark()}
+                        />
                         <span className="slider"></span>
                       </label>
                     </div>
@@ -194,4 +218,6 @@ const Settings = () => {
   )
 }
 
-export default Settings
+export default connect((state) => ({
+  me: state.main.me
+}))(Settings)

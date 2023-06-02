@@ -33,7 +33,12 @@ const ChatHeader = ({ currentChat, me }) => {
   }
   const startVideoCall = (e) => {
     e.preventDefault()
-    eventManager.fire('startVideoCall',{to: otherParticipantHash })
+    eventManager.fire('startVideoCall', { to: otherParticipantHash })
+  }
+
+  const startVoiceCall = (e) => {
+    e.preventDefault()
+    eventManager.fire('startVoiceCall', { to: otherParticipantHash })
   }
 
   return (
@@ -51,10 +56,10 @@ const ChatHeader = ({ currentChat, me }) => {
         </div>
       </div>
       <div className="left-section">
-        <div className="call">
+        <div className="call" onClick={(e) => startVoiceCall(e)}>
           <img src={Call} alt="call" className="img-responsive" />
         </div>
-        <div className="video-call" onClick={e => startVideoCall(e)}>
+        <div className="video-call" onClick={(e) => startVideoCall(e)}>
           <img src={VideoCall} alt="Video call" className="img-responsive" />
         </div>
         <div className="more" onClick={() => setShowMoreModal(!showMoreModal)}>

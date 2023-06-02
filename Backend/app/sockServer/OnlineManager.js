@@ -20,9 +20,7 @@ exports.addOnlineUser = async (id, ip) => {
   if (isOnlineUserExist) {
     return true;
   }
-  const locations = [[35.73961426105659,51.34153521445313],[35.66173490966943,51.447278622656256],[35.707653894004274,51.268064145117194]]
-  const selectedLocation =
-    locations[Math.floor(Math.random() * locations.length)];
+  
   const onlineUser = await OnlineUser.create({
     user: buildUserProfile(user),
     location: {

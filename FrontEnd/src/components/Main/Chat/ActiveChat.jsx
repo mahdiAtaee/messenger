@@ -12,12 +12,13 @@ import ChatContent from './ChatContent'
 import ChatFooter from './ChatFooter'
 import MediaContent from '../Media'
 
-function ActiveChat({ me, saveMessage, sendMessage,  startCall }) {
+function ActiveChat({ me, saveMessage, sendMessage, startCall }) {
   const chat = useContext(ChatContext)
   const { peerService, eventManager } = chat
   const { sender, receiver } = useContext(ConversationContext)
   const [mediaStream, setMediaStream] = useState(null)
-  
+  const [TypeStream, setTypeStream] = useState("voice")
+
   if (sender) {
     sender.on('data', (data) => {
       sendMessage(data)
@@ -30,7 +31,10 @@ function ActiveChat({ me, saveMessage, sendMessage,  startCall }) {
   }
 
   peerService.on('call', (call) => {
-    navigator.mediaDevices
+  console.log(TypeStream)
+
+    if (TypeStream === 'video') {
+      navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
       .then((stream) => {
         call.answer(stream)
@@ -39,12 +43,27 @@ function ActiveChat({ me, saveMessage, sendMessage,  startCall }) {
           const streamData = { type: mediaType, stream: remoteStream }
           setMediaStream({ type: mediaType, stream: remoteStream })
           startCall(streamData)
-
         })
       })
       .catch((err) => {
         console.error('user not allowed to video or audio permission.', err)
       })
+    } else if(TypeStream === 'voice'){
+      navigator.mediaDevices
+      .getUserMedia({ video: false, audio: true })
+      .then((stream) => {
+        call.answer(stream)
+        call.on('stream', (remoteStream) => {
+          const mediaType = getSupportedMedia(remoteStream)
+          const streamData = { type: mediaType, stream: remoteStream }
+          setMediaStream({ type: mediaType, stream: remoteStream })
+          startCall(streamData)
+        })
+      })
+      .catch((err) => {
+        console.error('user not allowed to video or audio permission.', err)
+      })
+    }
   })
 
   eventManager.on('message', (data) => {
@@ -66,11 +85,30 @@ function ActiveChat({ me, saveMessage, sendMessage,  startCall }) {
           const mediaType = getSupportedMedia(remoteStream)
           const streamData = { type: mediaType, stream: remoteStream }
           setMediaStream({ type: mediaType, stream: remoteStream })
+          setTypeStream('video')
           startCall(streamData)
         })
       })
       .catch((err) => {
-        console.error('user not allowed to video or audio permission.', err)
+        console.error('user not allowed to video permission.', err)
+      })
+  })
+
+  eventManager.on('startVoiceCall', (data) => {
+    navigator.mediaDevices
+      .getUserMedia({ video: false, audio: true })
+      .then((stream) => {
+        const mediaConnection = peerService.call(data.to, stream)
+        mediaConnection.on('stream', (remoteStream) => {
+          const mediaType = getSupportedMedia(remoteStream)
+          const streamData = { type: mediaType, stream: remoteStream }
+          setMediaStream({ type: mediaType, stream: remoteStream })
+          setTypeStream("voice")
+          startCall(streamData)
+        })
+      })
+      .catch((err) => {
+        console.error('user not allowed to audio permission.', err)
       })
   })
 

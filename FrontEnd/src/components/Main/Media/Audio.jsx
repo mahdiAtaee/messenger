@@ -20,9 +20,13 @@ function Audio({ stream, currentChat, me }) {
       audio.current.srcObject = stream
     }
   })
-  const handleEndCall = (e) => {
-    e.preventDefault()
-    eventManager.fire('endCall')
+  const handleEndCall = () => {
+    if (stream) {
+      stream.getTracks().forEach(function (track) {
+        track.stop()
+      })
+      eventManager.fire('finishCall', { chatID: currentChat.id, to: otherParticipantHash })
+    }
   }
   return (
     <div className="middle" id="scroll">

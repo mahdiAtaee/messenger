@@ -81,7 +81,7 @@ const Index = ({me}) => {
         </li>
         <li className={activePage === 'group' ? 'active item' : 'item'} ref={groupRef}>
           <Link
-            to="/messenger/group"
+            to="/messenger/recentChats"
             className="flex-center-between"
             onClick={() => setActivePage('group')}>
             <img src={People} alt="People" className="img-responsive" />

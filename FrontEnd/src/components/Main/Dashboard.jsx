@@ -132,7 +132,7 @@ const Dashboard = ({
       case '/messenger/chat':
         component = <Users />
         break
-      case '/messenger/group':
+      case '/messenger/recentChats':
         component = <RecentChats />
         break
       case '/messenger/settings':

@@ -178,6 +178,7 @@
 
 /* dark mode  */
 .settings-wrapper.dark {
+  background: var(--navy-blue-color);
   box-shadow: -3px 0px 6px 1px #0004;
 }
 
@@ -199,4 +200,16 @@
 
 .settings-wrapper.dark .accordion .privacy-title {
   color: var(--light-gray-color);
+}
+
+.settings-wrapper.dark .user-account .input-wrapper input {
+  background: var(--navy-blue-color);
+  border-color: #fff;
+  color: #fff;
+}
+
+.settings-wrapper.dark .user-account .input-wrapper input:focus + label,
+.settings-wrapper.dark .user-account .input-wrapper input + label {
+  background: var(--navy-blue-color);
+  color: #fff;
 }
